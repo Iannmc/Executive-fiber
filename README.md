@@ -1,6 +1,6 @@
 # Executive Fiber Website
 
-The official website for **Executive Fiber**, an internet service provider serving Matuu, Machakos County, Kenya. A multi-page static site built with plain HTML, CSS and JavaScript.
+The official website for **Executive Fiber**, an internet service provider serving customers across the country. A multi-page static site built with plain HTML, CSS and JavaScript.
 
 ## Features
 
@@ -68,7 +68,7 @@ This is a private project for Executive Fiber. For changes, create a branch, com
 ## Contact
 
 **Executive Fiber**
-Matuu, Machakos County, Kenya
+Serving customers across the country
 
 ## License
 
