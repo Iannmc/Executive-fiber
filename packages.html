@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Packages — Executive Fiber</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#080F1E">
+<meta name="description" content="Compare Executive Fiber internet packages from 10 Mbps to 500 Mbps, with unlimited data, free installation and no lock-in contracts.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Executive Fiber">
+<meta property="og:title" content="Packages — Executive Fiber">
+<meta property="og:description" content="Compare Executive Fiber internet packages from 10 Mbps to 500 Mbps, with unlimited data, free installation and no lock-in contracts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="ef-shared.css">
+<script src="ef-shared.js" defer></script>
+<style>
+.page-hero {
+  background: var(--navy); padding: 160px 5% 100px;
+  position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content:''; position:absolute; top:-150px; right:-200px;
+  width:600px; height:600px;
+  background:radial-gradient(circle,rgba(0,207,232,0.08),transparent 70%);
+  border-radius:50%;
+}
+.page-hero-inner { position:relative; z-index:1; max-width:700px; }
+.page-hero h1 { font-family:var(--font-display); font-size:clamp(2.8rem,6vw,5rem); font-weight:900; 
+color:var(--white); line-height:1.05; letter-spacing:-2px; margin-bottom:1.25rem; }
+.page-hero h1 em { font-style:italic; color:var(--cyan); }
+.page-hero p { font-size:1.1rem; color:rgba(255,255,255,0.55); max-width:520px; line-height:1.8; }
+
+/* TOGGLE */
+.plan-toggle { background:var(--offwhite); padding:40px 5% 0; display:flex; justify-content:center; }
+.toggle-wrap { display:inline-flex; background:var(--white); border:2px solid var(--border); border-radius:12px; padding:4px; gap:4px; }
+.toggle-btn { padding:0.6rem 1.8rem; border-radius:8px; border:none; font-family:var(--font-body); font-size:0.875rem; font-weight:600; 
+cursor:pointer; transition:all 0.2s; background:transparent; color:var(--gray); }
+.toggle-btn.active { background:var(--navy); color:var(--white); }
+.save-badge { font-family:var(--font-mono); font-size:0.65rem; background:rgba(0,207,232,0.15); 
+color:var(--cyan); border:1px solid rgba(0,207,232,0.3); padding:0.15rem 0.5rem; border-radius:20px; margin-left:0.4rem; }
+
+/* PACKAGES GRID */
+.packages-section { background:var(--offwhite); padding:40px 5% 100px; }
+.pkg-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.pkg-card {
+  background:var(--white); border:2px solid var(--border);
+  border-radius:20px; padding:2.5rem; position:relative;
+  transition:all 0.3s; display:flex; flex-direction:column;
+}
+.pkg-card:hover { transform:translateY(-6px); box-shadow:0 24px 60px rgba(21,71,184,0.1); border-color:rgba(21,71,184,0.2); }
+.pkg-card.featured { background:var(--navy); border-color:var(--blue); color:var(--white); }
+.pkg-card.featured:hover { box-shadow:0 24px 60px rgba(0,207,232,0.15); border-color:var(--cyan); }
+.pkg-badge { position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:var(--cyan); color:var(--navy); 
+font-family:var(--font-mono); font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; 
+padding:0.3rem 1rem; border-radius:20px; white-space:nowrap; }
+.pkg-tier { font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--lgray); margin-bottom:0.75rem; }
+.pkg-card.featured .pkg-tier { color:rgba(255,255,255,0.35); }
+.pkg-speed { font-family:var(--font-display); font-size:4rem; font-weight:900; color:var(--blue); line-height:1; }
+.pkg-card.featured .pkg-speed { color:var(--cyan); }
+.pkg-speed-unit { font-family:var(--font-mono); font-size:0.9rem; color:var(--lgray); margin-left:0.25rem; }
+.pkg-card.featured .pkg-speed-unit { color:rgba(255,255,255,0.4); }
+.pkg-divider { height:1px; background:var(--border); margin:1.5rem 0; }
+.pkg-card.featured .pkg-divider { background:rgba(255,255,255,0.08); }
+.pkg-price { font-family:var(--font-display); font-size:2.2rem; font-weight:900; color:var(--navy); }
+.pkg-card.featured .pkg-price { color:var(--white); }
+.pkg-period { font-size:0.85rem; color:var(--lgray); font-weight:400; margin-left:0.25rem; }
+.pkg-card.featured .pkg-period { color:rgba(255,255,255,0.4); }
+.pkg-annual { font-family:var(--font-mono); font-size:0.72rem; color:var(--cyan); margin-top:0.3rem; display:block; min-height:1rem; }
+.pkg-features { list-style:none; margin:1.5rem 0; display:flex; flex-direction:column; gap:0.7rem; flex:1; }
+.pkg-features li { font-size:0.875rem; color:var(--gray); display:flex; align-items:flex-start; gap:0.6rem; line-height:1.5; }
+.pkg-card.featured .pkg-features li { color:rgba(255,255,255,0.65); }
+.pkg-features li .check { color:var(--blue); font-weight:800; flex-shrink:0; font-size:0.8rem; margin-top:1px; }
+.pkg-card.featured .pkg-features li .check { color:var(--cyan); }
+.pkg-cta { display:block; text-align:center; padding:0.9rem; border-radius:10px; font-family:var(--font-body); 
+font-weight:700; font-size:0.9rem; text-decoration:none; transition:all 0.22s; margin-top:auto; border:2px solid var(--blue); color:var(--blue); }
+.pkg-cta:hover { background:var(--blue); color:var(--white); }
+.pkg-card.featured .pkg-cta { background:var(--cyan); border-color:var(--cyan); color:var(--navy); }
+.pkg-card.featured .pkg-cta:hover { background:#00e5ff; }
+
+/* contrast fixes */
+.pkg-card:not(.featured) .pkg-annual { color: var(--blue); }
+.toggle-btn:not(.active) .save-badge { color: var(--blue); background: rgba(21,71,184,0.08); border-color: rgba(21,71,184,0.25); }
+
+/* COMPARISON TABLE */
+.compare { background:var(--white); padding:100px 5%; }
+.compare-table { width:100%; border-collapse:collapse; margin-top:3rem; }
+.compare-table th { padding:1rem 1.5rem; font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.08em; 
+text-transform:uppercase; color:var(--lgray); border-bottom:2px solid var(--border); text-align:left; }
+.compare-table th:not(:first-child) { text-align:center; }
+.compare-table td { padding:0.9rem 1.5rem; font-size:0.875rem; border-bottom:1px solid var(--border); color:var(--gray); }
+.compare-table td:not(:first-child) { text-align:center; font-weight:600; color:var(--navy); }
+.compare-table tr:hover td { background:var(--offwhite); }
+.compare-table .feature-name { font-weight:500; color:var(--navy); }
+.compare-table .yes { color:var(--blue); font-size:1rem; }
+.compare-table .no { color:var(--lgray); font-size:1rem; }
+.compare-table .highlight-col { background:rgba(21,71,184,0.03); }
+
+/* FAQ */
+.pkg-faq { background:var(--navy); padding:100px 5%; }
+.pkg-faq h2 { color:var(--white); }
+.pkg-faq .lead { color:rgba(255,255,255,0.5); }
+.faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+.faq-item { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; overflow:hidden; }
+.faq-q { width:100%; display:flex; align-items:center; justify-content:space-between; padding:1.2rem 1.5rem; 
+background:none; border:none; cursor:pointer; text-align:left; color:var(--white); font-family:var(--font-body); font-size:0.9rem; 
+font-weight:600; gap:1rem; transition:background 0.2s; }
+.faq-q:hover { background:rgba(255,255,255,0.03); }
+.faq-icon { width:26px; height:26px; border-radius:50%; background:rgba(0,207,232,0.12); border:1px solid rgba(0,207,232,0.25); 
+display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--cyan); font-size:1rem; transition:transform 0.3s; }
+.faq-item.open .faq-icon { transform:rotate(45deg); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height 0.35s ease,padding 0.3s; padding:0 1.5rem; 
+color:rgba(255,255,255,0.55); font-size:0.875rem; line-height:1.75; }
+.faq-item.open .faq-a { max-height:200px; padding:0 1.5rem 1.2rem; }
+
+@media(max-width:900px){
+  .pkg-grid{grid-template-columns:1fr}
+  .faq-grid{grid-template-columns:1fr}
+  .compare-table{display:block;overflow-x:auto}
+}
+
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Executive<em>Fiber</em></a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">ISP Services</a></li>
+    <li><a href="packages.html" class="active">Packages</a></li>
+    <li><a href="digital.html">Digital</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Connected</a></li>
+  </ul>
+  <button type="button" class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">ISP Services</a>
+  <a href="packages.html" class="active">Packages</a>
+  <a href="digital.html">Digital</a>
+  <a href="contact.html" class="mob-cta">Get Connected</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="tag">Pricing</div>
+    <h1>Simple Plans,<br><em>Real</em> Speeds.</h1>
+    <p>No hidden fees. No throttling. No contracts required. Choose the plan that fits your life or business and get online in 48 hours.</p>
+  </div>
+</div>
+
+<div class="plan-toggle">
+  <div class="toggle-wrap">
+    <button type="button" class="toggle-btn active" aria-pressed="true" onclick="setMonthly()">Monthly</button>
+    <button type="button" class="toggle-btn" aria-pressed="false" onclick="setAnnual()">Annual <span class="save-badge">SAVE 15%</span></button>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<section class="packages-section">
+  <div class="pkg-grid">
+    <div class="pkg-card">
+      <div class="pkg-tier">Starter</div>
+      <div><span class="pkg-speed">10</span><span class="pkg-speed-unit">Mbps</span></div>
+      <div class="pkg-divider"></div>
+      <div><span class="pkg-price">KSh 1,500</span><span class="pkg-period">/ month</span></div>
+      <span class="pkg-annual" id="annual-1"></span>
+      <ul class="pkg-features">
+        <li><span class="check">✓</span>10 Mbps Symmetrical</li>
+        <li><span class="check">✓</span>Unlimited Data</li>
+        <li><span class="check">✓</span>Free Installation</li>
+        <li><span class="check">✓</span>WiFi Router Included</li>
+        <li><span class="check">✓</span>Email & Phone Support</li>
+        <li><span class="check">✓</span>No Lock-in Contract</li>
+      </ul>
+      <a href="contact.html?plan=starter" class="pkg-cta">Get Started</a>
+    </div>
+
+
+
+
+    <div class="pkg-card featured">
+      <div class="pkg-badge">Most Popular</div>
+      <div class="pkg-tier">Basic</div>
+      <div><span class="pkg-speed">20</span><span class="pkg-speed-unit">Mbps</span></div>
+      <div class="pkg-divider"></div>
+      <div><span class="pkg-price">KSh 2,500</span><span class="pkg-period">/ month</span></div>
+      <span class="pkg-annual" id="annual-2"></span>
+      <ul class="pkg-features">
+        <li><span class="check">✓</span>20 Mbps Symmetrical</li>
+        <li><span class="check">✓</span>Unlimited Data</li>
+        <li><span class="check">✓</span>Free Installation</li>
+        <li><span class="check">✓</span>Business Router Included</li>
+        <li><span class="check">✓</span>Static IP Address</li>
+        <li><span class="check">✓</span>Priority 24/7 Support</li>
+        <li><span class="check">✓</span>99.9% Uptime SLA</li>
+        <li><span class="check">✓</span>Dedicated Account Manager</li>
+      </ul>
+      <a href="contact.html?plan=basic" class="pkg-cta">Get Started</a>
+    </div>
+
+
+
+
+
+    <div class="pkg-card">
+      <div class="pkg-tier">Enterprise</div>
+      <div><span class="pkg-speed">50</span><span class="pkg-speed-unit">Mbps</span></div>
+      <div class="pkg-divider"></div>
+      <div><span class="pkg-price">KSh 6,500</span><span class="pkg-period">/ month</span></div>
+      <span class="pkg-annual" id="annual-3"></span>
+      <ul class="pkg-features">
+        <li><span class="check">✓</span>50 Mbps Dedicated Line</li>
+        <li><span class="check">✓</span>Unlimited Data</li>
+        <li><span class="check">✓</span>Free Installation</li>
+        <li><span class="check">✓</span>Enterprise Router & Firewall</li>
+        <li><span class="check">✓</span>Static IP Address</li>
+        <li><span class="check">✓</span>Priority 24/7 Support</li>
+        <li><span class="check">✓</span>99.99% Uptime SLA</li>
+        <li><span class="check">✓</span>On-site Engineer Support</li>
+      </ul>
+      <a href="contact.html?plan=enterprise-50" class="pkg-cta">Get Started</a>
+    </div>
+
+
+    <div class="pkg-card featured">
+      <div class="pkg-tier">Business</div>
+      <div><span class="pkg-speed">100</span><span class="pkg-speed-unit">Mbps</span></div>
+      <div class="pkg-divider"></div>
+      <div><span class="pkg-price">KSh 9,500</span><span class="pkg-period">/ month</span></div>
+      <span class="pkg-annual" id="annual-4"></span>
+      <ul class="pkg-features">
+        <li><span class="check">✓</span>100 Mbps Dedicated Line</li>
+        <li><span class="check">✓</span>Unlimited Data</li>
+        <li><span class="check">✓</span>Free Installation</li>
+        <li><span class="check">✓</span>Business Router Included</li>
+        <li><span class="check">✓</span>Multiple Static IPs</li>
+        <li><span class="check">✓</span>Priority 24/7 Support</li>
+        <li><span class="check">✓</span>99.9% Uptime SLA</li>
+        <li><span class="check">✓</span>Dedicated Account Manager</li>
+      </ul>
+      <a href="contact.html?plan=business-100" class="pkg-cta">Get Started</a>
+    </div>
+
+
+
+ <div class="pkg-card">
+      <div class="pkg-tier">Business</div>
+      <div><span class="pkg-speed">250</span><span class="pkg-speed-unit">Mbps</span></div>
+      <div class="pkg-divider"></div>
+      <div><span class="pkg-price">KSh 13,500</span><span class="pkg-period">/ month</span></div>
+      <span class="pkg-annual" id="annual-5"></span>
+      <ul class="pkg-features">
+        <li><span class="check">✓</span>250 Mbps Dedicated Line</li>
+        <li><span class="check">✓</span>Unlimited Data</li>
+        <li><span class="check">✓</span>Free Installation</li>
+        <li><span class="check">✓</span>Enterprise Router & Firewall</li>
+        <li><span class="check">✓</span>Multiple Static IPs</li>
+        <li><span class="check">✓</span>Priority 24/7 Support</li>
+        <li><span class="check">✓</span>99.99% Uptime SLA</li>
+        <li><span class="check">✓</span>On-site Engineer Support</li>
+      </ul>
+      <a href="contact.html?plan=business-250" class="pkg-cta">Get Started</a>
+    </div>
+
+<div class="pkg-card featured">
+      <div class="pkg-tier">Business</div>
+      <div><span class="pkg-speed">500</span><span class="pkg-speed-unit">Mbps</span></div>
+      <div class="pkg-divider"></div>
+      <div><span class="pkg-price">KSh 18,500</span><span class="pkg-period">/ month</span></div>
+      <span class="pkg-annual" id="annual-6"></span>
+      <ul class="pkg-features">
+        <li><span class="check">✓</span>500 Mbps Dedicated Line</li>
+        <li><span class="check">✓</span>Unlimited Data</li>
+        <li><span class="check">✓</span>Free Installation</li>
+        <li><span class="check">✓</span>Business Router Included</li>
+        <li><span class="check">✓</span>Multiple Static IPs</li>
+        <li><span class="check">✓</span>Priority 24/7 Support</li>
+        <li><span class="check">✓</span>99.9% Uptime SLA</li>
+        <li><span class="check">✓</span>Dedicated Account Manager</li>
+      </ul>
+      <a href="contact.html?plan=business-500" class="pkg-cta">Get Started</a>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="compare">
+  <div class="tag">Compare</div>
+  <h2>Feature Comparison</h2>
+  <p class="lead">See exactly what's included in each plan.</p>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Starter</th>
+        <th class="highlight-col">Basic</th>
+        <th>Enterprise</th>
+        <th>Business</th>
+        <th>Business</th>
+        <th>Business</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="feature-name">Download Speed</td><td>10 Mbps</td><td class="highlight-col">20 Mbps</td><td>50 Mbps</td>
+      <td>100 Mbps</td><td>250 Mbps</td><td>500 Mbps</td></tr>
+      <tr><td class="feature-name">Upload Speed</td><td>7 Mbps</td><td class="highlight-col">15 Mbps</td><td>40 Mbps</td>
+      <td>80 Mbps</td><td>230 Mbps</td><td>450 Mbps</td></tr>
+      <tr><td class="feature-name">Data Cap</td><td>Unlimited</td><td class="highlight-col">Unlimited</td><td>Unlimited</td>
+      <td>Unlimited</td><td>Unlimited</td><td>Unlimited</td></tr>
+      <tr><td class="feature-name">Static IP</td><td class="no">—</td><td class="highlight-col yes">✓</td><td class="yes">✓</td>
+      <td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td class="feature-name">Uptime SLA</td><td>99%</td><td class="highlight-col">99.9%</td><td>99.99%</td>
+      <td>99.99%</td><td>99.99%</td><td>99.99%</td></tr>
+      <tr><td class="feature-name">Support</td><td>Email & Phone</td><td class="highlight-col">Priority 24/7</td><td>Priority 24/7</td>
+      <td>Priority 24/7</td><td>Priority 24/7</td><td>Priority 24/7</td></tr>
+      <tr><td class="feature-name">Account Manager</td><td class="no">—</td><td class="highlight-col yes">✓</td><td class="yes">✓</td>
+      <td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td class="feature-name">Router Included</td><td class="yes">✓</td><td class="highlight-col yes">✓</td><td class="yes">✓</td>
+      <td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td class="feature-name">Managed Firewall</td><td class="no">—</td><td class="highlight-col no">Add-on</td><td class="yes">✓</td>
+      <td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td class="feature-name">Installation</td><td>Free</td><td class="highlight-col">Free</td><td>Free</td>
+      <td>Free</td><td>Free</td><td>Free</td></tr>
+      <tr><td class="feature-name">Contract Required</td><td class="no">None</td><td class="highlight-col no">None</td><td class="no">None</td>
+      <td class="no">None</td><td class="no">None</td><td class="no">None</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- FAQ -->
+<section class="pkg-faq">
+  <div class="tag">FAQ</div>
+  <h2>Pricing Questions Answered</h2>
+  <p class="lead">Everything you need to know before signing up.</p>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Is there a setup or installation fee?<div class="faq-icon">+</div></button>
+      <div class="faq-a">No. Installation is completely free on all plans. There are no hidden setup fees or activation charges.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Can I upgrade or downgrade my plan?<div class="faq-icon">+</div></button>
+      <div class="faq-a">Yes. You can upgrade at any time and it takes effect within 24 hours. Downgrades take effect at the start of your next billing cycle.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Do you offer annual discounts?<div class="faq-icon">+</div></button>
+      <div class="faq-a">Yes — pay annually and save 15% on any plan. Contact us or select the annual billing option above to see the discounted prices.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">What payment methods do you accept?<div class="faq-icon">+</div></button>
+      <div class="faq-a">We accept M-Pesa, bank transfer, and cash payments. Monthly billing runs on the same date each month.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Is there a data cap or fair use policy?<div class="faq-icon">+</div></button>
+      <div class="faq-a">No data caps on any plan. We never throttle based on usage. The speed you pay for is what you get all month long.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">What if I need a custom solution?<div class="faq-icon">+</div></button>
+      <div class="faq-a">Contact our sales team for a custom quote. We handle multi-site setups, dedicated leased lines, 
+        hotspot deployments, and anything that doesn't fit a standard package.</div>
+    </div>
+  </div>
+</section>
+
+<div class="speed-ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">⚡ UP TO 1 GBPS</span><span class="ticker-item">📡 FIBER OPTIC NETWORK</span>
+    <span class="ticker-item">🔒 99.9% UPTIME SLA</span><span class="ticker-item">📞 24/7 SUPPORT</span>
+    <span class="ticker-item">🌍 ACROSS THE COUNTRY</span><span class="ticker-item">✅ FREE INSTALLATION</span>
+    <span class="ticker-item">⚡ UP TO 500 MBPS</span><span class="ticker-item">📡 FIBER OPTIC NETWORK</span>
+    <span class="ticker-item">🔒 99.9% UPTIME SLA</span><span class="ticker-item">📞 24/7 SUPPORT</span>
+    <span class="ticker-item">🌍 ACROSS THE COUNTRY</span><span class="ticker-item">✅ FREE INSTALLATION</span>
+  </div>
+</div>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><a href="index.html" class="logo">Executive<em>Fiber</em></a>
+      <p>Enterprise-grade fiber optic internet for homes and businesses across the country.</p></div>
+    <div class="footer-col"><h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">ISP Services</a>
+      <a href="packages.html">Packages</a>
+      <a href="digital.html">Digital Services</a>
+      <a href="contact.html">Contact</a></div>
+
+
+    <div class="footer-col"><h4>Services</h4>
+      <a href="services.html#home-fiber">Home Fiber</a>
+      <a href="services.html#business-broadband">Business Broadband</a>
+      <a href="services.html#hotspot">Hotspot Solutions</a>
+      <a href="services.html#leased-lines">Leased Lines</a>
+    </div>
+    <div class="footer-col"><h4>Contact</h4>
+      <a href="tel:+254797150692">+254 797150692</a>
+      <a href="mailto:executivefiber@gmail.com">executivefiber@gmail.com</a>
+      <a href="contact.html">Across the country</a>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 <span>Executive Fiber</span>. All rights reserved. · <a href="privacy.html">Privacy Policy</a></p>
+
+
+     <div class="footer-socials">
+  <!-- WhatsApp -->
+<a href="https://wa.me/254797150692" title="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener">
+  <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor">
+    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.742 5.49 2.043 7.796L.057 31.943l8.418-2.203A15.933 15.933 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.006 22.906c-.334.940-1.956 1.846-2.686 1.962-.73.116-1.64.165-2.647-.166-1.007-.33-2.295-.77-3.953-1.507-3.29-1.462-5.44-4.77-5.604-4.992-.163-.222-1.33-1.77-1.33-3.376s.842-2.396 1.14-2.722c.298-.327.65-.409.866-.409.217 0 .434.002.624.01.2.01.468-.076.733.559.275.658.933 2.276.933 2.442 0 .166-.083.373-.249.597-.166.222-.249.36-.415.555-.166.194-.35.41-.149.804.2.394.892 1.47 1.915 2.381 1.315 1.173 2.424 1.536 2.773 1.709.35.174.554.145.757-.083.2-.228.865-.997 1.096-1.34.23-.342.46-.285.773-.171.313.114 1.99.938 2.33 1.109.34.17.568.256.651.398.083.143.083.826-.25 1.767z"/>
+  </svg>
+</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn){
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+  });
+  if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+}
+
+// Monthly prices (KSh). Annual = 15% off, shown per month, with the yearly total underneath.
+const MONTHLY = [1500, 2500, 6500, 9500, 13500, 18500];
+const ANNUAL_DISCOUNT = 0.15;
+const ksh = n => 'KSh ' + n.toLocaleString('en-US');
+
+function setBilling(annual){
+  const btns = document.querySelectorAll('.toggle-btn');
+  btns[0].classList.toggle('active', !annual);
+  btns[1].classList.toggle('active', annual);
+  btns[0].setAttribute('aria-pressed', String(!annual));
+  btns[1].setAttribute('aria-pressed', String(annual));
+  const prices = document.querySelectorAll('.pkg-price');
+  MONTHLY.forEach((m, i) => {
+    const perMonth = annual ? Math.round(m * (1 - ANNUAL_DISCOUNT)) : m;
+    prices[i].textContent = ksh(perMonth);
+    document.getElementById('annual-' + (i + 1)).textContent = annual ? ksh(perMonth * 12) + ' billed annually' : '';
+  });
+}
+function setMonthly(){ setBilling(false); }
+function setAnnual(){ setBilling(true); }
+</script>
+
+</body>
+</html>

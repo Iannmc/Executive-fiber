@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Services — Executive Fiber</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#080F1E">
+<meta name="description" content="Web design, mobile apps, SEO and social media management from the Executive Fiber digital team.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Executive Fiber">
+<meta property="og:title" content="Digital Services — Executive Fiber">
+<meta property="og:description" content="Web design, mobile apps, SEO and social media management from the Executive Fiber digital team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="ef-shared.css">
+<script src="ef-shared.js" defer></script>
+<style>
+/* HERO */
+.dig-hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: linear-gradient(135deg, #0A0A2E 0%, #1a0533 40%, #0d1f4a 100%);
+  display: flex; align-items: center;
+  padding: 140px 5% 80px;
+  position: relative; overflow: hidden;
+}
+.dig-hero::before {
+  content:''; position:absolute; top:-200px; right:-200px;
+  width:700px; height:700px;
+  background:radial-gradient(circle, rgba(139,92,246,0.2), transparent 70%);
+  border-radius:50%;
+}
+.dig-hero::after {
+  content:''; position:absolute; bottom:-100px; left:10%;
+  width:500px; height:500px;
+  background:radial-gradient(circle, rgba(236,72,153,0.12), transparent 70%);
+  border-radius:50%;
+}
+.dig-hero-grid {
+  position:absolute; inset:0;
+  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+.dig-hero-content { position:relative; z-index:1; max-width:800px; }
+.dig-tag {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  background:rgba(139,92,246,0.15); border:1px solid rgba(139,92,246,0.3);
+  color:#a78bfa; padding:0.4rem 1rem; border-radius:20px;
+  font-family:var(--font-mono); font-size:0.72rem; font-weight:500;
+  letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1.5rem;
+  width:fit-content;
+}
+.dig-tag::before { content:''; width:5px; height:5px; background:#a78bfa; border-radius:50%; animation:blink 2s infinite; }
+.dig-hero h1 {
+  font-family:var(--font-display);
+  font-size:clamp(3rem,7vw,5.5rem);
+  font-weight:900; line-height:1.0;
+  color:var(--white); letter-spacing:-2px; margin-bottom:1.5rem;
+}
+.dig-hero h1 .g1 { background:linear-gradient(135deg,#a78bfa,#ec4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-style:italic; }
+.dig-hero h1 .g2 { background:linear-gradient(135deg,#06b6d4,#6366f1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.dig-hero p { font-size:1.1rem; color:rgba(255,255,255,0.6); max-width:540px; margin-bottom:2.5rem; line-height:1.8; font-weight:300; }
+.dig-hero-btns { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:4rem; }
+.btn-purple { background:linear-gradient(135deg,#7c3aed,#a855f7); color:var(--white); padding:0.85rem 2rem; border-radius:10px; font-weight:700; font-size:0.9rem; text-decoration:none; transition:all 0.22s; display:inline-flex; align-items:center; gap:0.5rem; }
+.btn-purple:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(124,58,237,0.4); }
+.btn-purple::after { content:'→'; transition:transform 0.2s; }
+.btn-purple:hover::after { transform:translateX(4px); }
+.btn-outline-white { background:transparent; color:var(--white); border:2px solid rgba(255,255,255,0.2); padding:0.85rem 2rem; border-radius:10px; font-weight:600; font-size:0.9rem; text-decoration:none; transition:all 0.22s; display:inline-block; }
+.btn-outline-white:hover { border-color:rgba(255,255,255,0.5); background:rgba(255,255,255,0.05); }
+.dig-metrics { display:flex; gap:0; border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; width:fit-content; }
+.dig-metric { padding:1.2rem 2rem; text-align:center; border-right:1px solid rgba(255,255,255,0.08); }
+.dig-metric:last-child { border-right:none; }
+.dig-metric-val { font-family:var(--font-display); font-size:2rem; font-weight:900; color:var(--white); line-height:1; }
+.dig-metric-val span { background:linear-gradient(135deg,#a78bfa,#ec4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.dig-metric-lbl { font-size:0.72rem; color:rgba(255,255,255,0.35); margin-top:0.3rem; font-family:var(--font-mono); letter-spacing:0.05em; }
+
+/* SERVICES */
+.dig-services { background:#0d0d1a; padding:100px 5%; }
+.dig-services h2 { color:var(--white); }
+.dig-services .lead { color:rgba(255,255,255,0.5); }
+.svc-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; }
+.svc-big-card {
+  border-radius:20px; padding:2.5rem;
+  position:relative; overflow:hidden;
+  transition:all 0.3s; cursor:default;
+}
+.svc-big-card::before {
+  content:''; position:absolute; inset:0;
+  background:inherit; opacity:0.08;
+  transition:opacity 0.3s;
+}
+.svc-big-card:hover { transform:translateY(-6px); }
+.svc-big-card:hover::before { opacity:0.14; }
+.card-web { background:linear-gradient(135deg,rgba(124,58,237,0.15),rgba(99,102,241,0.08)); border:1px solid rgba(124,58,237,0.25); }
+.card-app { background:linear-gradient(135deg,rgba(236,72,153,0.15),rgba(251,113,133,0.08)); border:1px solid rgba(236,72,153,0.25); }
+.card-seo { background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(6,182,212,0.08)); border:1px solid rgba(16,185,129,0.25); }
+.card-social { background:linear-gradient(135deg,rgba(245,158,11,0.15),rgba(251,146,60,0.08)); border:1px solid rgba(245,158,11,0.25); }
+.card-icon { font-size:2.5rem; margin-bottom:1.25rem; display:block; }
+.svc-big-card h3 { font-family:var(--font-display); font-size:1.4rem; font-weight:900; color:var(--white); margin-bottom:0.75rem; }
+.svc-big-card p { font-size:0.9rem; color:rgba(255,255,255,0.55); line-height:1.75; margin-bottom:1.5rem; }
+.svc-tags { display:flex; flex-wrap:wrap; gap:0.5rem; }
+.svc-pill { font-family:var(--font-mono); font-size:0.68rem; padding:0.3rem 0.75rem; border-radius:20px; font-weight:500; }
+.pill-purple { background:rgba(124,58,237,0.2); color:#a78bfa; border:1px solid rgba(124,58,237,0.3); }
+.pill-pink { background:rgba(236,72,153,0.2); color:#f472b6; border:1px solid rgba(236,72,153,0.3); }
+.pill-green { background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.3); }
+.pill-amber { background:rgba(245,158,11,0.2); color:#fbbf24; border:1px solid rgba(245,158,11,0.3); }
+
+/* PROCESS */
+.dig-process { background:#080810; padding:100px 5%; }
+.dig-process h2 { color:var(--white); text-align:center; }
+.dig-process .lead { text-align:center; margin:0 auto 4rem; color:rgba(255,255,255,0.5); }
+.process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
+.process-step {
+  background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07);
+  border-radius:16px; padding:2rem; position:relative;
+  transition:all 0.3s;
+}
+.process-step:hover { background:rgba(255,255,255,0.06); transform:translateY(-4px); }
+.step-number {
+  font-family:var(--font-display); font-size:3.5rem; font-weight:900;
+  line-height:1; margin-bottom:1rem;
+  background:linear-gradient(135deg,rgba(139,92,246,0.3),rgba(236,72,153,0.3));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.process-step h4 { font-family:var(--font-body); font-size:0.95rem; font-weight:700; color:var(--white); margin-bottom:0.5rem; }
+.process-step p { font-size:0.82rem; color:rgba(255,255,255,0.45); line-height:1.7; }
+
+/* PORTFOLIO */
+.dig-portfolio { background:#0d0d1a; padding:100px 5%; }
+.dig-portfolio h2 { color:var(--white); }
+.dig-portfolio .lead { color:rgba(255,255,255,0.5); }
+.portfolio-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+.portfolio-card {
+  border-radius:16px; overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  transition:all 0.3s; position:relative;
+}
+.portfolio-card:hover { transform:translateY(-6px); border-color:rgba(139,92,246,0.3); box-shadow:0 20px 60px rgba(124,58,237,0.2); }
+.portfolio-thumb {
+  height:200px; display:flex; align-items:center; justify-content:center;
+  font-size:3rem; position:relative; overflow:hidden;
+}
+.thumb-1 { background:linear-gradient(135deg,#1e1b4b,#312e81); }
+.thumb-2 { background:linear-gradient(135deg,#1a0533,#4c1d95); }
+.thumb-3 { background:linear-gradient(135deg,#022c22,#064e3b); }
+.thumb-4 { background:linear-gradient(135deg,#1c1917,#44403c); }
+.thumb-5 { background:linear-gradient(135deg,#0c0a09,#292524); }
+.thumb-6 { background:linear-gradient(135deg,#0f172a,#1e3a5f); }
+.portfolio-info { padding:1.25rem; background:rgba(255,255,255,0.03); }
+.portfolio-type { font-family:var(--font-mono); font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:0.4rem; }
+.portfolio-title { font-size:0.9rem; font-weight:700; color:var(--white); }
+
+/* PRICING */
+.dig-pricing { background:#080810; padding:100px 5%; }
+.dig-pricing h2 { color:var(--white); text-align:center; }
+.dig-pricing .lead { text-align:center; margin:0 auto 3.5rem; color:rgba(255,255,255,0.5); }
+.pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.pricing-card {
+  border-radius:20px; padding:2.5rem;
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.03);
+  position:relative; transition:all 0.3s;
+  display:flex; flex-direction:column;
+}
+.pricing-card:hover { transform:translateY(-6px); }
+.pricing-card.featured-price {
+  background:linear-gradient(135deg,rgba(124,58,237,0.15),rgba(99,102,241,0.08));
+  border-color:rgba(124,58,237,0.4);
+}
+.pricing-badge { position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,#7c3aed,#a855f7); color:var(--white); font-family:var(--font-mono); font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.3rem 1rem; border-radius:20px; white-space:nowrap; }
+.pricing-tier { font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:0.75rem; }
+.pricing-price { font-family:var(--font-display); font-size:3rem; font-weight:900; color:var(--white); line-height:1; margin-bottom:0.25rem; }
+.pricing-price span { font-size:1rem; font-weight:400; color:rgba(255,255,255,0.4); }
+.pricing-desc { font-size:0.825rem; color:rgba(255,255,255,0.45); margin-bottom:1.5rem; line-height:1.6; }
+.pricing-divider { height:1px; background:rgba(255,255,255,0.07); margin-bottom:1.5rem; }
+.pricing-features { list-style:none; display:flex; flex-direction:column; gap:0.65rem; flex:1; margin-bottom:2rem; }
+.pricing-features li { font-size:0.85rem; color:rgba(255,255,255,0.6); display:flex; align-items:flex-start; gap:0.6rem; }
+.pricing-features li::before { content:'✓'; color:#a78bfa; font-weight:800; flex-shrink:0; font-size:0.8rem; margin-top:1px; }
+.pricing-cta { display:block; text-align:center; padding:0.9rem; border-radius:10px; font-family:var(--font-body); font-weight:700; font-size:0.9rem; text-decoration:none; transition:all 0.22s; border:2px solid rgba(124,58,237,0.4); color:#a78bfa; }
+.pricing-cta:hover { background:rgba(124,58,237,0.2); border-color:#a78bfa; }
+.pricing-card.featured-price .pricing-cta { background:linear-gradient(135deg,#7c3aed,#a855f7); border-color:transparent; color:var(--white); }
+.pricing-card.featured-price .pricing-cta:hover { box-shadow:0 8px 28px rgba(124,58,237,0.4); transform:translateY(-2px); }
+
+/* WHY US */
+.dig-why { background:#0d0d1a; padding:100px 5%; }
+.dig-why h2 { color:var(--white); }
+.dig-why .lead { color:rgba(255,255,255,0.5); }
+.why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+.why-item { padding:2rem; border-radius:16px; border:1px solid rgba(255,255,255,0.07); background:rgba(255,255,255,0.03); transition:all 0.25s; }
+.why-item:hover { background:rgba(255,255,255,0.06); transform:translateY(-4px); }
+.why-emoji { font-size:2rem; margin-bottom:1rem; display:block; }
+.why-item h4 { font-family:var(--font-body); font-size:0.95rem; font-weight:700; color:var(--white); margin-bottom:0.5rem; }
+.why-item p { font-size:0.85rem; color:rgba(255,255,255,0.45); line-height:1.7; }
+
+/* CTA */
+.dig-cta {
+  padding:100px 5%; text-align:center;
+  background:linear-gradient(135deg,#0A0A2E,#1a0533,#0d1f4a);
+  position:relative; overflow:hidden;
+}
+.dig-cta::before {
+  content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:600px; height:300px;
+  background:radial-gradient(ellipse,rgba(139,92,246,0.15),transparent 70%);
+}
+.dig-cta h2 { color:var(--white); font-size:clamp(2rem,4vw,3.2rem); position:relative; margin-bottom:1rem; }
+.dig-cta p { color:rgba(255,255,255,0.55); max-width:480px; margin:0 auto 2.5rem; position:relative; font-size:1.05rem; }
+.cta-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; position:relative; }
+
+@media(max-width:900px){
+  .svc-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .portfolio-grid{grid-template-columns:1fr 1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .portfolio-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr}
+  .dig-metrics{flex-wrap:wrap}
+}
+
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Executive<em>Fiber</em></a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">ISP Services</a></li>
+    <li><a href="packages.html">Packages</a></li>
+    <li><a href="digital.html" class="active">Digital</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Connected</a></li>
+  </ul>
+  <button type="button" class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">ISP Services</a>
+  <a href="packages.html">Packages</a>
+  <a href="digital.html" class="active">Digital</a>
+  <a href="contact.html" class="mob-cta">Get Connected</a>
+</div>
+
+<!-- HERO -->
+<section class="dig-hero">
+  <div class="dig-hero-grid"></div>
+  <div class="dig-hero-content">
+    <div class="dig-tag">Digital Services</div>
+    <h1>We Build<br><span class="g1">Beautiful</span><br><span class="g2">Digital Things.</span></h1>
+    <p>From stunning websites to mobile apps, SEO strategies and social media — Executive Fiber's digital team delivers end-to-end online presence solutions for businesses of every size.</p>
+    <div class="dig-hero-btns">
+      <a href="#pricing" class="btn-purple">See Packages</a>
+      <a href="contact.html?plan=digital" class="btn-outline-white">Get a Free Quote</a>
+    </div>
+    <div class="dig-metrics">
+      <div class="dig-metric"><div class="dig-metric-val">50<span>+</span></div><div class="dig-metric-lbl">Sites Delivered</div></div>
+      <div class="dig-metric"><div class="dig-metric-val">100<span>%</span></div><div class="dig-metric-lbl">Client Satisfaction</div></div>
+      <div class="dig-metric"><div class="dig-metric-val">7<span>d</span></div><div class="dig-metric-lbl">Avg. Turnaround</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="dig-services">
+  <div class="dig-tag">What We Do</div>
+  <h2>Full-Stack Digital Services</h2>
+  <p class="lead">Everything your business needs to dominate online — under one roof.</p>
+  <div class="svc-grid">
+    <div class="svc-big-card card-web">
+      <span class="card-icon">🌐</span>
+      <h3>Web Design & Development</h3>
+      <p>Custom-built websites that look stunning on every device. From landing pages to full e-commerce platforms — we design, develop, and deploy sites that convert visitors into customers.</p>
+      <div class="svc-tags">
+        <span class="svc-pill pill-purple">Landing Pages</span>
+        <span class="svc-pill pill-purple">E-Commerce</span>
+        <span class="svc-pill pill-purple">Web Apps</span>
+        <span class="svc-pill pill-purple">CMS / WordPress</span>
+        <span class="svc-pill pill-purple">Responsive Design</span>
+      </div>
+    </div>
+    <div class="svc-big-card card-app">
+      <span class="card-icon">📱</span>
+      <h3>Mobile App Development</h3>
+      <p>iOS and Android apps built for performance and user experience. Whether it's a customer-facing app, an internal tool, or a marketplace — we bring your idea to life on mobile.</p>
+      <div class="svc-tags">
+        <span class="svc-pill pill-pink">iOS Apps</span>
+        <span class="svc-pill pill-pink">Android Apps</span>
+        <span class="svc-pill pill-pink">Cross-Platform</span>
+        <span class="svc-pill pill-pink">UI/UX Design</span>
+        <span class="svc-pill pill-pink">App Store Launch</span>
+      </div>
+    </div>
+    <div class="svc-big-card card-seo">
+      <span class="card-icon">🔍</span>
+      <h3>SEO & Digital Marketing</h3>
+      <p>Get found by people who are already searching for what you offer. We handle on-page SEO, content strategy, Google Ads, and analytics so your business ranks and converts.</p>
+      <div class="svc-tags">
+        <span class="svc-pill pill-green">On-Page SEO</span>
+        <span class="svc-pill pill-green">Google Ads</span>
+        <span class="svc-pill pill-green">Content Strategy</span>
+        <span class="svc-pill pill-green">Analytics Setup</span>
+        <span class="svc-pill pill-green">Local SEO</span>
+      </div>
+    </div>
+    <div class="svc-big-card card-social">
+      <span class="card-icon">📣</span>
+      <h3>Social Media Management</h3>
+      <p>Consistent, engaging content across Facebook, Instagram, LinkedIn, TikTok and more. We create, schedule, and manage your social presence so you can focus on running your business.</p>
+      <div class="svc-tags">
+        <span class="svc-pill pill-amber">Content Creation</span>
+        <span class="svc-pill pill-amber">Scheduling</span>
+        <span class="svc-pill pill-amber">Community Mgmt</span>
+        <span class="svc-pill pill-amber">Paid Social Ads</span>
+        <span class="svc-pill pill-amber">Analytics Reports</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="dig-process">
+  <div class="dig-tag">How It Works</div>
+  <h2>From Idea to Launch</h2>
+  <p class="lead">A clear, collaborative process that keeps you informed at every step.</p>
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-number">01</div>
+      <h4>Discovery Call</h4>
+      <p>We learn about your business, goals, target audience, and what success looks like for you. Free consultation, no obligation.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">02</div>
+      <h4>Strategy & Design</h4>
+      <p>We map out the sitemap, wireframes, and visual direction. You review and approve before a single line of code is written.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">03</div>
+      <h4>Build & Develop</h4>
+      <p>Our team builds your site or app with clean code, fast load times, and mobile-first design. Regular updates keep you in the loop.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">04</div>
+      <h4>Launch & Support</h4>
+      <p>We go live, set up analytics, and provide post-launch support. Ongoing maintenance packages available to keep everything running smoothly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="dig-portfolio">
+  <div class="dig-tag">Our Work</div>
+  <h2>Recent Projects</h2>
+  <p class="lead">A sample of what we've built for clients across Kenya.</p>
+  <div class="portfolio-grid">
+    <div class="portfolio-card">
+      <div class="portfolio-thumb thumb-1">🏨</div>
+      <div class="portfolio-info">
+        <div class="portfolio-type">Hotel & Hospitality</div>
+        <div class="portfolio-title">Savannah Lodge — Booking Website</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-thumb thumb-2">🛒</div>
+      <div class="portfolio-info">
+        <div class="portfolio-type">E-Commerce</div>
+        <div class="portfolio-title">Nairobi Boutique — Online Store</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-thumb thumb-3">🏥</div>
+      <div class="portfolio-info">
+        <div class="portfolio-type">Healthcare</div>
+        <div class="portfolio-title">MediCare Clinic — Patient Portal</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-thumb thumb-4">🏫</div>
+      <div class="portfolio-info">
+        <div class="portfolio-type">Education</div>
+        <div class="portfolio-title">Bright Futures Academy — School Site</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-thumb thumb-5">🍽️</div>
+      <div class="portfolio-info">
+        <div class="portfolio-type">Restaurant & Food</div>
+        <div class="portfolio-title">Jikoni Kitchen — Menu & Ordering</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-thumb thumb-6">📡</div>
+      <div class="portfolio-info">
+        <div class="portfolio-type">ISP / Tech</div>
+        <div class="portfolio-title">Executive Fiber — This Website</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="dig-pricing" id="pricing">
+  <div class="dig-tag">Pricing</div>
+  <h2>Simple, Honest Pricing</h2>
+  <p class="lead">No hidden costs. Pay for what you need, scale when you're ready.</p>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-tier">Starter</div>
+      <div class="pricing-price">KSh 15,000<span> once</span></div>
+      <div class="pricing-desc">Perfect for small businesses, freelancers, and personal brands that need a professional online presence fast.</div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>Up to 5 pages</li>
+        <li>Mobile responsive design</li>
+        <li>Contact form</li>
+        <li>Basic SEO setup</li>
+        <li>1 month free support</li>
+        <li>Delivered in 5–7 days</li>
+      </ul>
+      <a href="contact.html?plan=digital" class="pricing-cta">Get Started</a>
+    </div>
+    <div class="pricing-card featured-price">
+      <div class="pricing-badge">Most Popular</div>
+      <div class="pricing-tier">Business</div>
+      <div class="pricing-price">KSh 45,000<span> once</span></div>
+      <div class="pricing-desc">For growing businesses that need a full-featured website with e-commerce, booking, or custom functionality.</div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>Up to 15 pages</li>
+        <li>E-commerce or booking system</li>
+        <li>Custom animations & interactions</li>
+        <li>Full SEO optimization</li>
+        <li>Google Analytics integration</li>
+        <li>3 months free support</li>
+        <li>Delivered in 10–14 days</li>
+      </ul>
+      <a href="contact.html?plan=digital" class="pricing-cta">Get Started</a>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-tier">Enterprise</div>
+      <div class="pricing-price">Custom<span> quote</span></div>
+      <div class="pricing-desc">Full digital transformation — web app, mobile app, SEO strategy, and ongoing social media management.</div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>Unlimited pages & features</li>
+        <li>Web + Mobile app</li>
+        <li>Monthly SEO retainer</li>
+        <li>Social media management</li>
+        <li>Dedicated project manager</li>
+        <li>Priority ongoing support</li>
+        <li>Timeline agreed per scope</li>
+      </ul>
+      <a href="contact.html?plan=digital" class="pricing-cta">Request a Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="dig-why">
+  <div class="dig-tag">Why Choose Us</div>
+  <h2>Digital Done Differently</h2>
+  <p class="lead">We're not a faceless agency. We're a local team that treats your business like our own.</p>
+  <div class="why-grid">
+    <div class="why-item"><span class="why-emoji">🚀</span><h4>Fast Turnaround</h4><p>Most websites delivered in under 2 weeks. We don't keep you waiting months for a basic site.</p></div>
+    <div class="why-item"><span class="why-emoji">💬</span><h4>Always Reachable</h4><p>Direct WhatsApp access to your project team. No support tickets, no waiting in queues.</p></div>
+    <div class="why-item"><span class="why-emoji">📐</span><h4>Custom Built</h4><p>Every project is designed from scratch for your brand — no cookie-cutter templates.</p></div>
+    <div class="why-item"><span class="why-emoji">📊</span><h4>Results Focused</h4><p>We build sites that convert, not just look good. Analytics and performance are baked in from day one.</p></div>
+    <div class="why-item"><span class="why-emoji">🔐</span><h4>Secure & Hosted</h4><p>All sites include SSL, security hardening, and reliable hosting. Your site stays up and stays safe.</p></div>
+    <div class="why-item"><span class="why-emoji">🤝</span><h4>Long-Term Partner</h4><p>We don't disappear after launch. Maintenance, updates, and growth support are all part of the relationship.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="dig-cta">
+  <h2>Ready to Build Something Great?</h2>
+  <p>Get a free consultation and quote — no commitment, no pressure. Let's talk about your project.</p>
+  <div class="cta-btns">
+    <a href="contact.html?plan=digital" class="btn-purple">Start Your Project</a>
+    <a href="https://wa.me/254797150692" class="btn-outline-white">WhatsApp Us</a>
+  </div>
+</section>
+
+<div class="speed-ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">🌐 WEB DESIGN</span>
+    <span class="ticker-item">📱 MOBILE APPS</span>
+    <span class="ticker-item">🔍 SEO & MARKETING</span>
+    <span class="ticker-item">📣 SOCIAL MEDIA</span>
+    <span class="ticker-item">🚀 FAST DELIVERY</span>
+    <span class="ticker-item">💬 LOCAL SUPPORT</span>
+    <span class="ticker-item">🌐 WEB DESIGN</span>
+    <span class="ticker-item">📱 MOBILE APPS</span>
+    <span class="ticker-item">🔍 SEO & MARKETING</span>
+    <span class="ticker-item">📣 SOCIAL MEDIA</span>
+    <span class="ticker-item">🚀 FAST DELIVERY</span>
+    <span class="ticker-item">💬 LOCAL SUPPORT</span>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><a href="index.html" class="logo">Executive<em>Fiber</em></a><p>Enterprise-grade fiber internet and full digital services for businesses across 
+      Kenya.</p></div>
+    <div class="footer-col"><h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">ISP Services</a>
+      <a href="packages.html">Packages</a>
+      <a href="digital.html">Digital Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col"><h4>Digital Services</h4>
+      <a href="digital.html">Web Design</a>
+      <a href="digital.html">Mobile Apps</a>
+      <a href="digital.html">SEO & Marketing</a>
+      <a href="digital.html">Social Media</a>
+    </div>
+    <div class="footer-col"><h4>Contact</h4>
+      <a href="tel:+254797150692">+254 797 150 692</a>
+      <a href="mailto:executivefiber@gmail.com">executivefiber@gmail.com</a>
+      <a href="https://wa.me/254797150692">WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 <span>Executive Fiber</span>. All rights reserved. · <a href="privacy.html">Privacy Policy</a></p>
+    <div class="footer-socials">
+      
+        <a href="https://wa.me/254797150692" title="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener"> <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor">
+    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.742 5.49 2.043 7.796L.057 31.943l8.418-2.203A15.933 15.933 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.006 22.906c-.334.940-1.956 1.846-2.686 1.962-.73.116-1.64.165-2.647-.166-1.007-.33-2.295-.77-3.953-1.507-3.29-1.462-5.44-4.77-5.604-4.992-.163-.222-1.33-1.77-1.33-3.376s.842-2.396 1.14-2.722c.298-.327.65-.409.866-.409.217 0 .434.002.624.01.2.01.468-.076.733.559.275.658.933 2.276.933 2.442 0 .166-.083.373-.249.597-.166.222-.249.36-.415.555-.166.194-.35.41-.149.804.2.394.892 1.47 1.915 2.381 1.315 1.173 2.424 1.536 2.773 1.709.35.174.554.145.757-.083.2-.228.865-.997 1.096-1.34.23-.342.46-.285.773-.171.313.114 1.99.938 2.33 1.109.34.17.568.256.651.398.083.143.083.826-.25 1.767z"/>
+  </svg></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

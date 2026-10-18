@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive Fiber — High-Speed Fiber Internet</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#080F1E">
+<meta name="description" content="Executive Fiber delivers fiber optic internet to homes and businesses across the country, with unlimited data, free installation and local support.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Executive Fiber">
+<meta property="og:title" content="Executive Fiber — High-Speed Fiber Internet">
+<meta property="og:description" content="Executive Fiber delivers fiber optic internet to homes and businesses across the country, with unlimited data, free installation and local support.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="ef-shared.css">
+<script src="ef-shared.js" defer></script>
+<style>
+/* HERO */
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: var(--navy);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 130px 5% 80px;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(21,71,184,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(0,207,232,0.08) 0%, transparent 60%);
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+.hero-content { position: relative; z-index: 1; max-width: 780px; }
+.hero-eyebrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+.hero-eyebrow .ping-dot { margin-right: 0.25rem; }
+.hero-eyebrow span { font-family: var(--font-mono); font-size: 0.78rem; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; }
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 900; line-height: 1.0;
+  color: var(--white); letter-spacing: -2px;
+  margin-bottom: 1.5rem;
+}
+h1 .accent { color: var(--cyan); font-style: italic; }
+h1 .outline {
+  -webkit-text-stroke: 2px rgba(255,255,255,0.25);
+  color: transparent;
+}
+.hero-sub { font-size: 1.15rem; color: rgba(255,255,255,0.6); max-width: 540px; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.8; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 4rem; }
+.hero-metrics {
+  display: flex; gap: 0; border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; overflow: hidden; width: fit-content;
+}
+.metric {
+  padding: 1.2rem 2rem; text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.metric:last-child { border-right: none; }
+.metric-val { font-family: var(--font-display); font-size: 2rem; font-weight: 900; color: var(--white); line-height: 1; }
+.metric-val span { color: var(--cyan); }
+.metric-lbl { font-size: 0.72rem; color: rgba(255,255,255,0.35); margin-top: 0.3rem; font-family: var(--font-mono); letter-spacing: 0.05em; }
+
+/* FEATURE STRIP */
+.feature-strip { background: var(--navy2); padding: 60px 5%; }
+.strip-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.07); border-radius: 16px; overflow: hidden; }
+.strip-item { background: var(--navy2); padding: 2rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; transition: background 0.2s; }
+.strip-item:hover { background: rgba(255,255,255,0.03); }
+.strip-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.strip-item h4 { font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; color: var(--white); }
+.strip-item p { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.6; }
+
+/* SPEED SHOWCASE */
+.speed-section { background: var(--white); padding: 100px 5%; }
+.speed-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.speed-visual {
+  background: var(--navy);
+  border-radius: 20px; padding: 2.5rem;
+  border: 1px solid rgba(255,255,255,0.07);
+  position: relative; overflow: hidden;
+}
+.speed-visual::before {
+  content: ''; position: absolute;
+  top: -80px; right: -80px; width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(0,207,232,0.15), transparent 70%);
+  border-radius: 50%;
+}
+.speed-bar-label { font-family: var(--font-mono); font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-bottom: 0.4rem; letter-spacing: 0.08em; }
+.speed-bar-wrap { background: rgba(255,255,255,0.06); border-radius: 4px; height: 8px; margin-bottom: 1.5rem; overflow: hidden; }
+.speed-bar { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--blue), var(--cyan)); animation: 
+  grow 1.5s ease forwards; transform-origin: left; }
+@keyframes grow { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+.speed-num { font-family: var(--font-display); font-size: 4rem; font-weight: 900; color: var(--cyan); line-height: 1; }
+.speed-unit { font-size: 1rem; color: rgba(255,255,255,0.4); font-family: var(--font-mono); }
+.speed-divider { height: 1px; background: rgba(255,255,255,0.07); margin: 1.5rem 0; }
+.speed-compare { display: flex; justify-content: space-between; }
+.speed-compare-item { text-align: center; }
+.speed-compare-item .val { font-family: var(--font-mono); font-size: 0.9rem; font-weight: 500; color: var(--white); }
+.speed-compare-item .lbl { font-size: 0.7rem; color: rgba(255,255,255,0.3); margin-top: 0.2rem; }
+
+/* TESTIMONIALS */
+.testi-section { background: var(--offwhite); padding: 100px 5%; }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.testi-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem; transition: all 0.25s; }
+.testi-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(21,71,184,0.08); border-color: rgba(21,71,184,0.2); }
+.testi-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 0.75rem; }
+.testi-text { font-size: 0.9rem; color: var(--gray); line-height: 1.75; font-style: italic; margin-bottom: 1.25rem; }
+.testi-author { display: flex; align-items: center; gap: 0.75rem; }
+.testi-avatar { width: 40px; height: 40px; border-radius: 50%; background: 
+  linear-gradient(135deg, var(--blue), var(--cyan)); display: flex; align-items: center; justify-content: center; 
+  font-weight: 800; color: var(--white); font-size: 0.8rem; flex-shrink: 0; }
+.testi-name { font-size: 0.875rem; font-weight: 700; color: var(--navy); }
+.testi-role { font-size: 0.75rem; color: var(--lgray); }
+
+/* CTA BANNER */
+.cta-banner {
+  background: linear-gradient(135deg, var(--blue) 0%, #0C3494 50%, var(--navy) 100%);
+  padding: 80px 5%; text-align: center; position: relative; overflow: hidden;
+}
+.cta-banner::before {
+  content: ''; position: absolute; top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 300px;
+  background: radial-gradient(ellipse, rgba(0,207,232,0.15), transparent 70%);
+}
+.cta-banner h2 { color: var(--white); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; position: relative; }
+.cta-banner p { color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto 2.5rem; position: relative; }
+.cta-banner .btn { position: relative; }
+
+@media(max-width:900px){
+  .strip-grid{grid-template-columns:1fr 1fr}
+  .speed-grid{grid-template-columns:1fr;gap:3rem}
+  .testi-grid{grid-template-columns:1fr}
+  .hero-metrics{flex-wrap:wrap}
+}
+
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Executive Fiber","description":"Fiber optic internet for homes and businesses.","telephone":"+254797150692","email":"executivefiber@gmail.com","areaServed":{"@type":"Country","name":"Kenya"}}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Executive<em>Fiber</em></a>
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">ISP Services</a></li>
+    <li><a href="packages.html">Packages</a></li>
+    <li><a href="digital.html">Digital</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Connected</a></li>
+  </ul>
+  <button type="button" class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">ISP Services</a>
+  <a href="packages.html">Packages</a>
+  <a href="digital.html">Digital</a>
+  <a href="contact.html" class="mob-cta">Get Connected</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="ping-dot"></span>
+      <span>Network Online · Across the country</span>
+    </div>
+    <h1>The Internet<br>Your Business<br><span class="accent">Deserves.</span></h1>
+    <p class="hero-sub">Fiber optic internet built on infrastructure we own and operate. No resellers, 
+      no throttling, no excuses — just symmetrical gigabit speeds backed by a 99.9% uptime SLA.</p>
+    <div class="hero-actions">
+      <a href="packages.html" class="btn btn-cyan btn-arrow">See Packages</a>
+      <a href="contact.html" class="btn btn-ghost">Check Coverage</a>
+    </div>
+    <div class="hero-metrics">
+      <div class="metric"><div class="metric-val">500<span>Mbps</span></div><div class="metric-lbl">Max Speed</div></div>
+      <div class="metric"><div class="metric-val">99<span>%</span></div><div class="metric-lbl">Uptime SLA</div></div>
+      <div class="metric"><div class="metric-val">48<span>h</span></div><div class="metric-lbl">Install Time</div></div>
+      <div class="metric"><div class="metric-val">24<span>/7</span></div><div class="metric-lbl">Support</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE STRIP -->
+<div class="feature-strip">
+  <div class="strip-grid">
+    <div class="strip-item">
+      <div class="strip-icon">⚡</div>
+      <h4>Symmetrical Speeds</h4>
+      <p>Upload equals download. No compromises on either direction.</p>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🔁</div>
+      <h4>No Throttling</h4>
+      <p>Same speed at 3am as at 3pm. Always.</p>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">📍</div>
+      <h4>Local Infrastructure</h4>
+      <p>We own our fiber. No middlemen between you and speed.</p>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🛡️</div>
+      <h4>SLA Guaranteed</h4>
+      <p>99.9% uptime written into every business contract.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SPEED SHOWCASE -->
+<section class="speed-section">
+  <div class="speed-grid">
+    <div>
+      <div class="tag">Performance</div>
+      <h2>Speed That Feels Different</h2>
+      <p class="lead">Most internet providers talk about "up to" speeds. We talk about consistent speeds. 
+        Our fiber backbone delivers what's on the label — every hour, every day.</p>
+      <a href="packages.html" class="btn btn-blue btn-arrow">View Plans</a>
+    </div>
+    <div class="speed-visual">
+      <div style="margin-bottom:1.5rem">
+        <div class="speed-bar-label">DOWNLOAD</div>
+        <div class="speed-bar-wrap"><div class="speed-bar" style="width:95%"></div></div>
+        <div class="speed-num">450<span class="speed-unit"> Mbps</span></div>
+      </div>
+      <div class="speed-divider"></div>
+      <div style="margin-top:1.5rem">
+        <div class="speed-bar-label">UPLOAD</div>
+        <div class="speed-bar-wrap"><div class="speed-bar" style="width:93%;animation-delay:0.3s"></div></div>
+        <div class="speed-num">430<span class="speed-unit"> Mbps</span></div>
+      </div>
+      <div class="speed-divider"></div>
+      <div class="speed-compare">
+        <div class="speed-compare-item"><div class="val">2ms</div><div class="lbl">Latency</div></div>
+        <div class="speed-compare-item"><div class="val">0%</div><div class="lbl">Packet Loss</div></div>
+        <div class="speed-compare-item"><div class="val">99.9%</div><div class="lbl">Uptime</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="tag">Client Stories</div>
+  <h2>Trusted Across the country</h2>
+  <p class="lead">Over 500 homes and businesses connected. Here's what they say.</p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Switched from a different provider and the difference is night and day. 
+        Consistent speeds even in the evenings, and the installation team was fast and professional."</p>
+      <div class="testi-author"><div class="testi-avatar">JM</div><div>
+        <div class="testi-name">James Mutua</div><div class="testi-role">Home User, Matuu</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"We run a hotel with 40+ rooms. Executive Fiber set up a complete hotspot solution that has worked flawlessly for over 8 months. 
+        Guests never complain about WiFi anymore."</p>
+      <div class="testi-author"><div class="testi-avatar">SW</div><div><div class="testi-name">Sarah Wambua</div>
+      <div class="testi-role">Hotel Manager, Machakos</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"As someone who works from home, a stable connection is my lifeline. 
+        Executive Fiber has never let me down during a client call. Support is quick to respond too."</p>
+      <div class="testi-author"><div class="testi-avatar">PK</div><div><div class="testi-name">Peter Kimani</div>
+      <div class="testi-role">Freelancer, Kitengela</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <h2>Ready to Switch to Real Fiber?</h2>
+  <p>Check if we cover your area and get connected in as little as 48 hours.</p>
+  <a href="contact.html" class="btn btn-cyan btn-arrow">Get Connected Today</a>
+</div>
+
+<div class="speed-ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">⚡ UP TO 1 GBPS</span><span class="ticker-item">📡 FIBER OPTIC NETWORK</span>
+    <span class="ticker-item">🔒 99.9% UPTIME SLA</span><span class="ticker-item">📞 24/7 SUPPORT</span>
+    <span class="ticker-item">🌍 ACROSS THE COUNTRY</span><span class="ticker-item">✅ FREE INSTALLATION</span>
+    <span class="ticker-item">⚡ UP TO 500 MBPS</span><span class="ticker-item">📡 FIBER OPTIC NETWORK</span>
+    <span class="ticker-item">🔒 99.9% UPTIME SLA</span><span class="ticker-item">📞 24/7 SUPPORT</span>
+    <span class="ticker-item">🌍 ACROSS THE COUNTRY</span><span class="ticker-item">✅ FREE INSTALLATION</span>
+  </div>
+</div>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><a href="index.html" class="logo">Executive<em>Fiber</em></a>
+      <p>Enterprise-grade fiber optic internet for homes and businesses across the country.</p></div>
+    <div class="footer-col"><h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">ISP Services</a>
+      <a href="packages.html">Packages</a>
+      <a href="digital.html">Digital Services</a>
+      <a href="contact.html">Contact</a></div>
+
+
+    <div class="footer-col"><h4>Services</h4>
+      <a href="services.html#home-fiber">Home Fiber</a>
+      <a href="services.html#business-broadband">Business Broadband</a>
+      <a href="services.html#hotspot">Hotspot Solutions</a>
+      <a href="services.html#leased-lines">Leased Lines</a></div>
+
+
+    <div class="footer-col"><h4>Contact</h4>
+      <a href="tel:+254797150692">+254 797150692</a>
+      <a href="mailto:executivefiber@gmail.com">executivefiber@gmail.com</a>
+      <a href="contact.html">Across the country</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 <span>Executive Fiber</span>. All rights reserved. · <a href="privacy.html">Privacy Policy</a></p>
+
+
+    <div class="footer-socials">
+  <!-- WhatsApp -->
+<a href="https://wa.me/254797150692" title="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener">
+  <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor">
+    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.742 5.49 2.043 7.796L.057 31.943l8.418-2.203A15.933 15.933 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.006 22.906c-.334.940-1.956 1.846-2.686 1.962-.73.116-1.64.165-2.647-.166-1.007-.33-2.295-.77-3.953-1.507-3.29-1.462-5.44-4.77-5.604-4.992-.163-.222-1.33-1.77-1.33-3.376s.842-2.396 1.14-2.722c.298-.327.65-.409.866-.409.217 0 .434.002.624.01.2.01.468-.076.733.559.275.658.933 2.276.933 2.442 0 .166-.083.373-.249.597-.166.222-.249.36-.415.555-.166.194-.35.41-.149.804.2.394.892 1.47 1.915 2.381 1.315 1.173 2.424 1.536 2.773 1.709.35.174.554.145.757-.083.2-.228.865-.997 1.096-1.34.23-.342.46-.285.773-.171.313.114 1.99.938 2.33 1.109.34.17.568.256.651.398.083.143.083.826-.25 1.767z"/>
+  </svg>
+</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

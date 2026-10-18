@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Executive Fiber</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#080F1E">
+<meta name="description" content="Learn about Executive Fiber: the local team that builds and operates its own fiber network to bring reliable internet to homes and businesses.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Executive Fiber">
+<meta property="og:title" content="About — Executive Fiber">
+<meta property="og:description" content="Learn about Executive Fiber: the local team that builds and operates its own fiber network to bring reliable internet to homes and businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="ef-shared.css">
+<script src="ef-shared.js" defer></script>
+<style>
+.page-hero {
+  background: var(--navy); padding: 160px 5% 100px;
+  position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content:''; position:absolute; top:-150px; right:-150px;
+  width:500px; height:500px;
+  background:radial-gradient(circle,rgba(0,207,232,0.1),transparent 70%);
+  border-radius:50%;
+}
+.page-hero-inner { position:relative; z-index:1; max-width:700px; }
+.page-hero h1 { font-family:var(--font-display); font-size:clamp(2.8rem,6vw,5rem); font-weight:900; 
+color:var(--white); line-height:1.05; letter-spacing:-2px; margin-bottom:1.25rem; }
+.page-hero h1 em { font-style:italic; color:var(--cyan); }
+.page-hero p { font-size:1.1rem; color:rgba(255,255,255,0.55); max-width:520px; line-height:1.8; }
+
+/* MISSION */
+.mission { background:var(--offwhite); padding:100px 5%; }
+.mission-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.mission-text h2 { margin-bottom:1rem; }
+.mission-text p { color:var(--gray); margin-bottom:1rem; font-size:0.95rem; line-height:1.8; }
+.mission-visual {
+  background:var(--navy); border-radius:20px; padding:2.5rem;
+  display:grid; grid-template-columns:1fr 1fr; gap:1rem;
+}
+.m-stat { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:1.5rem; text-align:center; }
+.m-stat .val { font-family:var(--font-display); font-size:2.4rem; font-weight:900; color:var(--cyan); display:block; }
+.m-stat .lbl { font-size:0.75rem; color:rgba(255,255,255,0.4); margin-top:0.3rem; font-family:var(--font-mono); }
+
+/* STORY TIMELINE */
+.story { background:var(--navy); padding:100px 5%; }
+.story h2 { color:var(--white); text-align:center; margin-bottom:0.75rem; }
+.story .lead { text-align:center; margin:0 auto 4rem; }
+.timeline { display:flex; flex-direction:column; gap:0; max-width:700px; margin:0 auto; }
+.tl-item { display:grid; grid-template-columns:80px 1fr; gap:2rem; padding-bottom:3rem; position:relative; }
+.tl-item:not(:last-child)::before { content:''; position:absolute; left:39px; top:40px; bottom:0; width:2px; background:rgba(255,255,255,0.07); }
+.tl-year { font-family:var(--font-mono); font-size:0.78rem; font-weight:500; color:var(--cyan); background:rgba(0,207,232,0.1); 
+border:1px solid rgba(0,207,232,0.2); border-radius:8px; padding:0.5rem; text-align:center; height:fit-content; margin-top:0.25rem; }
+.tl-content h3 { font-family:var(--font-body); font-size:1rem; font-weight:700; color:var(--white); margin-bottom:0.4rem; }
+.tl-content p { font-size:0.875rem; color:rgba(255,255,255,0.5); line-height:1.7; }
+
+/* VALUES */
+.values { background:var(--white); padding:100px 5%; }
+.values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.value-card { padding:2rem; border:2px solid var(--border); border-radius:16px; transition:all 0.25s; }
+.value-card:hover { border-color:var(--blue); transform:translateY(-4px); box-shadow:0 16px 48px rgba(21,71,184,0.08); }
+.value-icon { font-size:2rem; margin-bottom:1rem; display:block; }
+.value-card h3 { font-family:var(--font-body); font-size:1rem; font-weight:700; color:var(--navy); margin-bottom:0.5rem; }
+.value-card p { font-size:0.875rem; color:var(--gray); line-height:1.7; }
+
+/* TEAM */
+.team { background:var(--navy2); padding:100px 5%; }
+.team h2 { color:var(--white); }
+.team .lead { color:rgba(255,255,255,0.5); }
+.team-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
+.team-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:16px; overflow:hidden; text-align:center; transition:all 0.25s; padding:0; }
+.team-card:hover { transform:translateY(-6px); box-shadow:0 20px 60px rgba(0,0,0,0.4); border-color:rgba(0,207,232,0.25); }
+.team-avatar { width:100%; height:260px; overflow:hidden; position:relative; background:linear-gradient(135deg,var(--blue),var(--cyan)); }
+.team-avatar img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; transition:transform 0.4s ease; }
+.team-card:hover .team-avatar img { transform:scale(1.05); }
+.team-info { padding:1.25rem 1.5rem 1.5rem; }
+.team-avatar[data-initials]::after {
+  content: attr(data-initials);
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-size:2.5rem; font-weight:900; color:var(--white);
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+}
+.team-name { font-size:0.9rem; font-weight:700; color:var(--white); }
+.team-role { font-size:0.78rem; color:rgba(255,255,255,0.4); margin-top:0.3rem; font-family:var(--font-mono); }
+
+@media(max-width:900px){
+  .mission-grid{grid-template-columns:1fr;gap:3rem}
+  .values-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .values-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+}
+
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Executive<em>Fiber</em></a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="services.html">ISP Services</a></li>
+    <li><a href="packages.html">Packages</a></li>
+    <li><a href="digital.html">Digital</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Connected</a></li>
+  </ul>
+  <button type="button" class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html" class="active">About</a>
+  <a href="services.html">ISP Services</a>
+  <a href="packages.html">Packages</a>
+  <a href="digital.html">Digital</a>
+  <a href="contact.html" class="mob-cta">Get Connected</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="tag">Our Story</div>
+    <h1>Built on Infrastructure.<br>Driven by <em>People.</em></h1>
+    <p>Executive Fiber was founded on one conviction: that reliable, fast internet should not be a luxury. We built our own network to prove it.</p>
+  </div>
+</div>
+
+<!-- MISSION -->
+<section class="mission">
+  <div class="mission-grid">
+    <div class="mission-text">
+      <div class="tag">Mission</div>
+      <h2>Connecting Communities, One Fiber at a Time</h2>
+      <p>We started Executive Fiber because we saw a gap: homes and businesses across the country were underserved by legacy providers 
+        who over-promised and under-delivered.</p>
+      <p>So we did something different. We laid our own fiber, built our own network, and hired a local team that knows this region inside out. 
+        Today we serve hundreds of clients across the nation.</p>
+      <p>Our mission is simple: bring enterprise-grade connectivity to every home and business that needs it, 
+        with transparent pricing and support that actually shows up.</p>
+    </div>
+    <div class="mission-visual">
+      <div class="m-stat"><span class="val">500+</span><span class="lbl">Active Clients</span></div>
+      <div class="m-stat"><span class="val">99%</span><span class="lbl">Uptime</span></div>
+      <div class="m-stat"><span class="val">5+</span><span class="lbl">Years</span></div>
+      <div class="m-stat"><span class="val">24/7</span><span class="lbl">Support</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY TIMELINE -->
+<section class="story">
+  <div class="tag">Timeline</div>
+  <h2>How We Got Here</h2>
+  <p class="lead">From a single fiber run to a regional network — the Executive Fiber journey.</p>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">2019</div>
+      <div class="tl-content"><h3>Founded in Kitengela</h3>
+        <p>Executive Fiber is established with a small team and a single goal: provide honest, fast internet to underserved areas of the country.</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2020</div>
+      <div class="tl-content"><h3>First 50 Clients</h3>
+        <p>We hit our first 50 residential clients and prove the model works — consistent speeds, fair pricing, and local support that responds within hours.</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2021</div>
+      <div class="tl-content"><h3>Business Broadband Launch</h3>
+        <p>We expand into dedicated business broadband with SLA guarantees, attracting schools, hotels, and SMEs across every region.</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2023</div>
+      <div class="tl-content"><h3>Hotspot & Managed WiFi</h3>
+        <p>We launch our managed hotspot solution, enabling hotels, estates and commercial landlords to offer branded WiFi with full billing control.</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2025</div>
+      <div class="tl-content"><h3>500 Mbps Infrastructure</h3>
+        <p>Major fiber backbone upgrade — we now deliver up to 500 Mbps to enterprise clients, with redundant links for maximum reliability.</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2026</div>
+      <div class="tl-content"><h3>500+ Clients & Growing</h3>
+        <p>We serve over 500 active homes and businesses, with ongoing expansion into new estates and neighboring towns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="tag">Our Values</div>
+  <h2>What We Stand For</h2>
+  <p class="lead">The principles that guide every decision we make — from how we build our network to how we answer the phone.</p>
+  <div class="values-grid">
+    <div class="value-card"><span class="value-icon">🎯</span><h3>Honesty First</h3>
+      <p>We tell you what you'll actually get, not what sounds best on a flyer. No "up to" speeds, no hidden fees, no surprise charges.</p></div>
+    <div class="value-card"><span class="value-icon">🏗️</span><h3>Own What We Build</h3>
+      <p>We operate our own fiber infrastructure end-to-end. That means full accountability — when something goes wrong, we fix it, not a third party.</p></div>
+    <div class="value-card"><span class="value-icon">🤝</span><h3>Local Accountability</h3>
+      <p>Our team lives and works in this region. When you need support, you reach someone who knows your street, your setup, and your needs.</p></div>
+    <div class="value-card"><span class="value-icon">⚡</span><h3>Speed as a Standard</h3>
+      <p>We believe fast internet shouldn't be a premium luxury. Every package we sell delivers meaningful speed for real-world use.</p></div>
+    <div class="value-card"><span class="value-icon">📈</span><h3>Always Improving</h3>
+      <p>We reinvest in our network continuously. What we offer today is better than last year — and next year will be better still.</p>
+    </div>
+    <div class="value-card"><span class="value-icon">🛡️</span><h3>Reliability by Design</h3><p>Redundant infrastructure, 24/7 monitoring, 
+      and rapid-response teams mean your connection stays up when it matters most.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team">
+  <div class="tag">The Team</div>
+  <h2>People Behind the Network</h2>
+  <p class="lead">A small, dedicated team that takes pride in keeping the country connected.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">
+        <img src="images/team-daniel.jpg" alt="Daniel Wanyonyi" onerror="this.style.display='none';this.parentElement.setAttribute('data-initials','DW')">
+      </div>
+      <div class="team-info">
+        <div class="team-name">Daniel Wanyonyi</div>
+        <div class="team-role">Founder & CEO</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <img src="images/team-josephat.jpg" alt="Josephat Gwara" onerror="this.style.display='none';this.parentElement.setAttribute('data-initials','JG')">
+      </div>
+      <div class="team-info">
+        <div class="team-name">Josephat Gwara</div>
+        <div class="team-role">Head of Operations</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <img src="images/team-ian.jpg" alt="Ian Nalwari" onerror="this.style.display='none';this.parentElement.setAttribute('data-initials','IN')">
+      </div>
+      <div class="team-info">
+        <div class="team-name">Ian Nalwari</div>
+        <div class="team-role">Network Engineer</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <img src="images/team-cosmas.jpg" alt="Cosmas Otwoli" onerror="this.style.display='none';this.parentElement.setAttribute('data-initials','CO')">
+      </div>
+      <div class="team-info">
+        <div class="team-name">Cosmas Otwoli</div>
+        <div class="team-role">Customer Support Lead</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="speed-ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">⚡ UP TO 1 GBPS</span>
+    <span class="ticker-item">📡 FIBER OPTIC NETWORK</span>
+    <span class="ticker-item">🔒 99.9% UPTIME SLA</span>
+    <span class="ticker-item">📞 24/7 SUPPORT</span>
+    <span class="ticker-item">🌍 ACROSS THE COUNTRY</span>
+    <span class="ticker-item">✅ FREE INSTALLATION</span>
+    <span class="ticker-item">⚡ UP TO 500 MBPS</span>
+    <span class="ticker-item">📡 FIBER OPTIC NETWORK</span>
+    <span class="ticker-item">🔒 99.9% UPTIME SLA</span>
+    <span class="ticker-item">📞 24/7 SUPPORT</span>
+    <span class="ticker-item">🌍 ACROSS THE COUNTRY</span>
+    <span class="ticker-item">✅ FREE INSTALLATION</span>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><a href="index.html" class="logo">Executive<em>Fiber</em></a>
+      <p>Enterprise-grade fiber optic internet for homes and businesses across the country.</p></div>
+    <div class="footer-col"><h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">ISP Services</a>
+      <a href="packages.html">Packages</a>
+      <a href="digital.html">Digital Services</a>
+      <a href="contact.html">Contact</a></div>
+
+
+    <div class="footer-col"><h4>Services</h4>
+      <a href="services.html#home-fiber">Home Fiber</a>
+      <a href="services.html#business-broadband">Business Broadband</a>
+      <a href="services.html#hotspot">Hotspot Solutions</a>
+      <a href="services.html#leased-lines">Leased Lines</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="tel:+254797150692">+254 797150692</a>
+      <a href="mailto:executivefiber@gmail.com">executivefiber@gmail.com</a><a href="contact.html">Across the country</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 <span>Executive Fiber</span>. All rights reserved. · <a href="privacy.html">Privacy Policy</a></p>
+
+    
+     <div class="footer-socials">
+
+  <!-- WhatsApp -->
+<a href="https://wa.me/254797150692" title="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener">
+  <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor">
+    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.742 5.49 2.043 7.796L.057 31.943l8.418-2.203A15.933 15.933 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.006 22.906c-.334.940-1.956 1.846-2.686 1.962-.73.116-1.64.165-2.647-.166-1.007-.33-2.295-.77-3.953-1.507-3.29-1.462-5.44-4.77-5.604-4.992-.163-.222-1.33-1.77-1.33-3.376s.842-2.396 1.14-2.722c.298-.327.65-.409.866-.409.217 0 .434.002.624.01.2.01.468-.076.733.559.275.658.933 2.276.933 2.442 0 .166-.083.373-.249.597-.166.222-.249.36-.415.555-.166.194-.35.41-.149.804.2.394.892 1.47 1.915 2.381 1.315 1.173 2.424 1.536 2.773 1.709.35.174.554.145.757-.083.2-.228.865-.997 1.096-1.34.23-.342.46-.285.773-.171.313.114 1.99.938 2.33 1.109.34.17.568.256.651.398.083.143.083.826-.25 1.767z"/>
+  </svg>
+</a>
+  </div>
+</footer>
+
+</body>
+</html>

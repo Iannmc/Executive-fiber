@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Executive Fiber</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#080F1E">
+<meta name="description" content="Request a connection or a quote from Executive Fiber. Tell us your location and we will confirm coverage within a few hours.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Executive Fiber">
+<meta property="og:title" content="Contact — Executive Fiber">
+<meta property="og:description" content="Request a connection or a quote from Executive Fiber. Tell us your location and we will confirm coverage within a few hours.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="ef-shared.css">
+<script src="ef-shared.js" defer></script>
+<style>
+.page-hero {
+  background: var(--navy); padding: 160px 5% 100px;
+  position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content:''; position:absolute; bottom:-100px; left:-100px;
+  width:500px; height:500px;
+  background:radial-gradient(circle,rgba(21,71,184,0.12),transparent 70%);
+  border-radius:50%;
+}
+.page-hero-inner { position:relative; z-index:1; max-width:700px; }
+.page-hero h1 { font-family:var(--font-display); font-size:clamp(2.8rem,6vw,5rem); font-weight:900; 
+  color:var(--white); line-height:1.05; letter-spacing:-2px; margin-bottom:1.25rem; }
+.page-hero h1 em { font-style:italic; color:var(--cyan); }
+.page-hero p { font-size:1.1rem; color:rgba(255,255,255,0.55); max-width:520px; line-height:1.8; }
+
+/* CONTACT MAIN */
+.contact-main { background:var(--white); padding:100px 5%; }
+.contact-layout { display:grid; grid-template-columns:1fr 1.4fr; gap:5rem; align-items:start; }
+
+/* INFO SIDE */
+.contact-info { display:flex; flex-direction:column; gap:1.25rem; }
+.info-card { background:var(--offwhite); border:1px solid var(--border); border-radius:14px; padding:1.5rem; 
+  display:flex; align-items:flex-start; gap:1rem; transition:all 0.2s; }
+.info-card:hover { border-color:rgba(21,71,184,0.2); background:var(--ice); }
+.info-icon { width:44px; height:44px; border-radius:10px; background:var(--ice); border:1px solid rgba(21,71,184,0.1); 
+  display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+.info-card h4 { font-size:0.72rem; font-family:var(--font-mono); letter-spacing:0.08em; 
+  text-transform:uppercase; color:var(--lgray); margin-bottom:0.3rem; }
+.info-card p { font-size:0.9rem; font-weight:600; color:var(--navy); }
+.info-card a { color:var(--blue); text-decoration:none; font-size:0.875rem; display:block; margin-top:0.2rem; }
+.info-card a:hover { color:var(--sky); }
+
+.hours-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-top:0.5rem; }
+.hours-item { background:var(--offwhite); border-radius:8px; padding:0.75rem; border:1px solid var(--border); }
+.hours-item .day { font-family:var(--font-mono); font-size:0.68rem; color:var(--lgray); text-transform:uppercase; letter-spacing:0.08em; }
+.hours-item .time { font-size:0.85rem; font-weight:600; color:var(--navy); margin-top:0.2rem; }
+
+/* FORM SIDE */
+.contact-form-wrap { background:var(--offwhite); border:2px solid var(--border); border-radius:20px; padding:2.5rem; }
+.form-title { font-family:var(--font-display); font-size:1.5rem; font-weight:900; color:var(--navy); margin-bottom:0.4rem; }
+.form-subtitle { font-size:0.875rem; color:var(--gray); margin-bottom:2rem; }
+.form-group { margin-bottom:1.1rem; }
+.form-group label { display:block; font-size:0.78rem; font-weight:700; color:var(--navy); margin-bottom:0.4rem; 
+  font-family:var(--font-mono); letter-spacing:0.04em; text-transform:uppercase; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width:100%; background:var(--white); border:2px solid var(--border);
+  color:var(--navy); border-radius:10px; padding:0.85rem 1rem;
+  font-size:0.9rem; font-family:var(--font-body); outline:none;
+  transition:all 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color:var(--blue); box-shadow:0 0 0 4px rgba(21,71,184,0.08); }
+.form-group input::placeholder, .form-group textarea::placeholder { color:var(--lgray); }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.form-group textarea { resize:vertical; min-height:120px; }
+.form-group select option { background:var(--white); }
+.submit-btn { width:100%; background:var(--blue); color:var(--white); border:none; padding:1rem; border-radius:10px; 
+  font-family:var(--font-body); font-weight:700; font-size:0.95rem; cursor:pointer; 
+  
+  transition:all 0.22s; margin-top:0.5rem; display:flex; align-items:center; justify-content:center; gap:0.5rem; }
+.submit-btn:hover { background:var(--sky); transform:translateY(-2px); box-shadow:0 8px 28px rgba(21,71,184,0.3); }
+.submit-btn .arrow { transition:transform 0.2s; }
+.submit-btn:hover .arrow { transform:translateX(4px); }
+.form-note { font-size:0.75rem; color:var(--lgray); text-align:center; margin-top:0.75rem; }
+
+/* SUCCESS STATE */
+.success-msg { display:none; text-align:center; padding:3rem 1rem; }
+.success-msg .checkmark { font-size:3rem; margin-bottom:1rem; display:block; }
+.success-msg h3 { font-family:var(--font-display); font-size:1.5rem; font-weight:900; color:var(--navy); margin-bottom:0.5rem; }
+.success-msg p { color:var(--gray); font-size:0.9rem; }
+
+/* COVERAGE MAP PLACEHOLDER */
+.coverage { background:var(--navy); padding:100px 5%; }
+.coverage h2 { color:var(--white); }
+.coverage .lead { color:rgba(255,255,255,0.5); }
+.coverage-areas { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:2rem; }
+.area-chip { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; 
+  padding:1rem; text-align:center; transition:all 0.2s; }
+.area-chip:hover { background:rgba(0,207,232,0.08); border-color:rgba(0,207,232,0.2); }
+.area-chip .area-dot { width:8px; height:8px; border-radius:50%; background:#22c55e; margin:0 auto 0.5rem; }
+.area-chip .area-name { font-size:0.875rem; font-weight:600; color:var(--white); }
+.area-chip .area-status { font-family:var(--font-mono); font-size:0.65rem; color:rgba(255,255,255,0.35); margin-top:0.2rem; letter-spacing:0.05em; }
+
+@media(max-width:900px){
+  .contact-layout{grid-template-columns:1fr;gap:3rem}
+  .coverage-areas{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+}
+
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Executive<em>Fiber</em></a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">ISP Services</a></li>
+    <li><a href="packages.html">Packages</a></li>
+    <li><a href="digital.html">Digital</a></li>
+    <li><a href="contact.html" class="nav-cta active">Get Connected</a></li>
+  </ul>
+  <button type="button" class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">ISP Services</a>
+  <a href="packages.html">Packages</a>
+  <a href="digital.html">Digital</a>
+  <a href="contact.html" class="mob-cta">Get Connected</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="tag">Get Connected</div>
+    <h1>Let's Get You<br><em>Online.</em></h1>
+    <p>Fill in your details and our team will reach out within a few hours to confirm coverage and arrange installation.</p>
+  </div>
+</div>
+
+<!-- CONTACT MAIN -->
+<section class="contact-main">
+  <div class="contact-layout">
+
+    <!-- INFO -->
+    <div>
+      <h2 style="font-size:1.4rem;margin-bottom:1.5rem">Get in Touch</h2>
+      <div class="contact-info">
+        <div class="info-card">
+          <div class="info-icon">📞</div>
+          <div>
+            <h4>Phone & WhatsApp</h4>
+            <p>+254 797150692</p>
+            <a href="https://wa.me/254797150692">Chat on WhatsApp →</a>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📧</div>
+          <div>
+            <h4>Email</h4>
+            <p>executivefiber@gmail.com</p>
+            <a href="mailto:executivefiber@gmail.com">Send us an email →</a>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <div>
+            <h4>Service Area</h4>
+            <p>Across the country</p>
+            <a href="#coverage">Check coverage areas ↓</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:2rem">
+        <h3 style="font-family:var(--font-body);font-size:0.9rem;font-weight:700;color:var(--navy);margin-bottom:1rem;">Support Hours</h3>
+        <div class="hours-grid">
+          <div class="hours-item"><div class="day">Mon – Fri</div><div class="time">8:00am – 8:00pm</div></div>
+          <div class="hours-item"><div class="day">Saturday</div><div class="time">9:00am – 6:00pm</div></div>
+          <div class="hours-item"><div class="day">Sunday</div><div class="time">10:00am – 4:00pm</div></div>
+          <div class="hours-item"><div class="day">Emergency</div><div class="time">24/7 On-Call</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="contact-form-wrap">
+      <div id="form-content">
+        <div class="form-title">Request a Connection</div>
+        <div class="form-subtitle">We'll confirm coverage and get back to you within a few hours.</div>
+        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onsubmit="handleSubmit(event)" novalidate>
+          <input type="hidden" name="form-name" value="contact">
+          <p style="display:none"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <div class="form-row">
+            <div class="form-group"><label for="field-name">Full Name</label><input type="text" id="field-name" name="name" autocomplete="name" placeholder="Your name"></div>
+            <div class="form-group"><label for="field-phone">Phone Number</label><input type="tel" id="field-phone" name="phone" autocomplete="tel" placeholder="+254 7xx xxx xxx"></div>
+          </div>
+          <div class="form-group"><label for="field-email">Email Address</label><input type="email" id="field-email" name="email" autocomplete="email" placeholder="your@email.com"></div>
+          <div class="form-group">
+            <label for="field-package">Package Interest</label>
+            <select id="field-package" name="package">
+              <option value="" disabled selected>Select a package</option>
+              <option>Starter — 10 Mbps (KSh 1,500/mo)</option>
+              <option>Basic — 20 Mbps (KSh 2,500/mo)</option>
+              <option>Enterprise — 50 Mbps (KSh 6,500/mo)</option>
+              <option>Business — 100 Mbps (KSh 9,500/mo)</option>
+              <option>Business — 250 Mbps (KSh 13,500/mo)</option>
+              <option>Enterprise — 500 Mbps (KSh 18,500/mo)</option>
+              <option>Hotspot / Managed WiFi Solution</option>
+              <option>Dedicated Leased Line</option>
+              <option>Digital Services — Web / App / SEO / Social</option>
+              <option>Not sure — I need advice</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="field-location">Your Location / Estate</label><input type="text" id="field-location" name="location" placeholder="e.g. Kitengela Town, Manyatta Estate..."></div>
+          <div class="form-group"><label for="field-message">Message (Optional)</label><textarea id="field-message" name="message" placeholder="Any details about your setup, specific requirements, or questions..."></textarea></div>
+          <button type="submit" class="submit-btn">Send Request <span class="arrow">→</span></button>
+          <p class="form-error" id="form-error" role="alert" hidden>Something went wrong sending your request. Please try again, or reach us on WhatsApp or +254 797 150 692.</p>
+          <p class="form-note">We typically respond within 2–4 hours during business hours.</p>
+          <p class="form-note">By sending this form you agree to us using your details to respond to your request, as described in our <a href="privacy.html">Privacy Policy</a>.</p>
+        </form>
+      </div>
+      <div class="success-msg" id="success-msg">
+        <span class="checkmark">✅</span>
+        <h3>Request Received!</h3>
+        <p>Thanks for reaching out. Our team will contact you within a few hours to confirm coverage and discuss next steps.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="coverage" id="coverage">
+  <div class="tag">Coverage</div>
+  <h2>Areas We Serve</h2>
+  <p class="lead">Our fiber network is live and expanding the country. Check if your area is covered.</p>
+  <div class="coverage-areas">
+    <div class="area-chip"><div class="area-dot"></div><div class="area-name">Kitengela</div><div class="area-status">LIVE</div></div>
+    <div class="area-chip"><div class="area-dot"></div><div class="area-name">Kinanie</div><div class="area-status">LIVE</div></div>
+    <div class="area-chip"><div class="area-dot"></div><div class="area-name">Kiserian</div><div class="area-status">LIVE</div></div>
+    <div class="area-chip"><div class="area-dot"></div><div class="area-name">Matuu</div><div class="area-status">LIVE</div></div>
+    <div class="area-chip"><div class="area-dot"></div><div class="area-name">Mwala</div><div class="area-status">LIVE</div></div>
+    <div class="area-chip"><div class="area-dot"></div><div class="area-name">Machakos</div><div class="area-status">LIVE</div></div>
+    <div class="area-chip"><div class="area-dot"></div><div class="area-name">Embu</div><div class="area-status">LIVE</div></div>
+    <div class="area-chip"><div class="area-dot"></div><div class="area-name">Masii</div><div class="area-status">LIVE</div></div>
+    <div class="area-chip"><div class="area-dot"></div><div class="area-name">Murang'a</div><div class="area-status">LIVE</div></div>
+    <div class="area-chip"><div class="area-dot"></div><div class="area-name">Kangundo</div><div class="area-status">LIVE</div></div>
+    <div class="area-chip"><div class="area-dot" style="background:#f59e0b"></div><div class="area-name">Kathiani</div><div class="area-status">COMING SOON</div></div>
+    <div class="area-chip"><div class="area-dot" style="background:#f59e0b"></div><div class="area-name">Kitui</div><div class="area-status">COMING SOON</div></div>
+    <div class="area-chip"><div class="area-dot" style="background:#f59e0b"></div><div class="area-name">Yatta</div><div class="area-status">COMING SOON</div></div>
+    <div class="area-chip"><div class="area-dot" style="background:var(--lgray)"></div><div class="area-name">Your Area?</div><div class="area-status">ASK US</div></div>
+  </div>
+</section>
+
+<div class="speed-ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">⚡ UP TO 1 GBPS</span>
+    <span class="ticker-item">📡 FIBER OPTIC NETWORK</span>
+    <span class="ticker-item">🔒 99.9% UPTIME SLA</span><span class="ticker-item">📞 24/7 SUPPORT</span>
+    <span class="ticker-item">🌍 ALL OVER THE COUNTRY</span><span class="ticker-item">✅ FREE INSTALLATION</span>
+    <span class="ticker-item">⚡ UP TO 500 MBPS</span><span class="ticker-item">📡 FIBER OPTIC NETWORK</span>
+    <span class="ticker-item">🔒 99.9% UPTIME SLA</span><span class="ticker-item">📞 24/7 SUPPORT</span>
+    <span class="ticker-item">🌍 ACROSS THE COUNTRY</span><span class="ticker-item">✅ FREE INSTALLATION</span>
+  </div>
+</div>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><a href="index.html" class="logo">Executive<em>Fiber</em></a>
+      <p>Enterprise-grade fiber optic internet for homes and businesses across the country.</p>
+    </div>
+    <div class="footer-col"><h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">ISP Services</a>
+      <a href="packages.html">Packages</a>
+      <a href="digital.html">Digital Services</a>
+      <a href="contact.html">Contact</a>
+
+
+    </div>
+    <div class="footer-col"><h4>Services</h4>
+      <a href="services.html#home-fiber">Home Fiber</a>
+      <a href="services.html#business-broadband">Business Broadband</a>
+      <a href="services.html#hotspot">Hotspot Solutions</a>
+      <a href="services.html#leased-lines">Leased Lines</a>
+    </div>
+    <div class="footer-col"><h4>Contact</h4>
+      <a href="tel:+254797150692">+254 797 150 692</a>
+      <a href="mailto:executivefiber@gmail.com">executivefiber@gmail.com</a>
+      <a href="#coverage">Countrywide</a>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 <span>Executive Fiber</span>. All rights reserved. · <a href="privacy.html">Privacy Policy</a></p>
+
+
+     <div class="footer-socials">
+  <!-- WhatsApp -->
+<a href="https://wa.me/254797150692" title="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener">
+  <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor">
+    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.742 5.49 2.043 7.796L.057 31.943l8.418-2.203A15.933 15.933 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.006 22.906c-.334.940-1.956 1.846-2.686 1.962-.73.116-1.64.165-2.647-.166-1.007-.33-2.295-.77-3.953-1.507-3.29-1.462-5.44-4.77-5.604-4.992-.163-.222-1.33-1.77-1.33-3.376s.842-2.396 1.14-2.722c.298-.327.65-.409.866-.409.217 0 .434.002.624.01.2.01.468-.076.733.559.275.658.933 2.276.933 2.442 0 .166-.083.373-.249.597-.166.222-.249.36-.415.555-.166.194-.35.41-.149.804.2.394.892 1.47 1.915 2.381 1.315 1.173 2.424 1.536 2.773 1.709.35.174.554.145.757-.083.2-.228.865-.997 1.096-1.34.23-.342.46-.285.773-.171.313.114 1.99.938 2.33 1.109.34.17.568.256.651.398.083.143.083.826-.25 1.767z"/>
+  </svg>
+</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Preselect the package when arriving from a "Get Started" button (contact.html?plan=basic).
+var PLAN_INDEX = {
+  'starter': 1, 'basic': 2, 'enterprise-50': 3, 'business-100': 4, 'business-250': 5,
+  'business-500': 6, 'hotspot': 7, 'leased': 8, 'digital': 9
+};
+(function () {
+  var plan = new URLSearchParams(location.search).get('plan');
+  var sel = document.getElementById('field-package');
+  if (plan && PLAN_INDEX[plan] && sel) sel.selectedIndex = PLAN_INDEX[plan];
+})();
+
+var FIELD_SELECTOR = '.form-group input, .form-group select, .form-group textarea';
+
+function clearErrors() {
+  document.querySelectorAll('.field-error').forEach(function (e) { e.remove(); });
+  document.querySelectorAll(FIELD_SELECTOR).forEach(function (el) {
+    el.style.borderColor = '';
+    el.style.boxShadow = '';
+    el.removeAttribute('aria-invalid');
+  });
+}
+
+function addError(el, message) {
+  el.style.borderColor = '#ef4444';
+  el.style.boxShadow = '0 0 0 4px rgba(239,68,68,0.1)';
+  el.setAttribute('aria-invalid', 'true');
+  if (el.parentElement.querySelector('.field-error')) return;
+  var err = document.createElement('span');
+  err.className = 'field-error';
+  err.setAttribute('role', 'alert');
+  err.textContent = message;
+  el.parentElement.appendChild(err);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  clearErrors();
+  document.getElementById('form-error').hidden = true;
+
+  var fields = [
+    { id: 'field-name',     label: 'Full Name' },
+    { id: 'field-phone',    label: 'Phone Number' },
+    { id: 'field-email',    label: 'Email Address' },
+    { id: 'field-package',  label: 'Package Interest' },
+    { id: 'field-location', label: 'Your Location' }
+  ];
+
+  var firstBad = null;
+  fields.forEach(function (f) {
+    var el = document.getElementById(f.id);
+    if (!el.value.trim()) {
+      addError(el, f.label + ' is required');
+      if (!firstBad) firstBad = el;
+    }
+  });
+
+  var emailEl = document.getElementById('field-email');
+  if (emailEl.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
+    addError(emailEl, 'Please enter a valid email address');
+    if (!firstBad) firstBad = emailEl;
+  }
+
+  if (firstBad) { firstBad.focus(); return; }
+
+  var form = event.target;
+  var btn = form.querySelector('.submit-btn');
+  var btnHtml = btn.innerHTML;
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(new FormData(form)).toString()
+  })
+  .then(function (res) {
+    // fetch only rejects on network errors: a 404/500 must count as a failure too
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    document.getElementById('form-content').style.display = 'none';
+    var ok = document.getElementById('success-msg');
+    ok.style.display = 'block';
+    ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  })
+  .catch(function () {
+    btn.disabled = false;
+    btn.innerHTML = btnHtml;
+    document.getElementById('form-error').hidden = false;
+  });
+}
+
+// Clear error styling as the user types
+document.querySelectorAll(FIELD_SELECTOR).forEach(function (el) {
+  el.addEventListener('input', function () {
+    el.style.borderColor = '';
+    el.style.boxShadow = '';
+    el.removeAttribute('aria-invalid');
+    var err = el.parentElement.querySelector('.field-error');
+    if (err) err.remove();
+  });
+});
+</script>
+
+</body>
+</html>

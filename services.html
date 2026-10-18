@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Executive Fiber</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#080F1E">
+<meta name="description" content="Home fiber, business broadband, managed hotspot WiFi and dedicated leased lines from Executive Fiber.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Executive Fiber">
+<meta property="og:title" content="Services — Executive Fiber">
+<meta property="og:description" content="Home fiber, business broadband, managed hotspot WiFi and dedicated leased lines from Executive Fiber.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="ef-shared.css">
+<script src="ef-shared.js" defer></script>
+<style>
+.page-hero {
+  background: var(--navy); padding: 160px 5% 100px;
+  position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content:''; position:absolute; top:-150px; right:-150px;
+  width:500px; height:500px;
+  background:radial-gradient(circle,rgba(21,71,184,0.15),transparent 70%);
+  border-radius:50%;
+}
+.page-hero-inner { position:relative; z-index:1; max-width:700px; }
+.page-hero h1 { font-family:var(--font-display); font-size:clamp(2.8rem,6vw,5rem); font-weight:900; color:var(--white); 
+line-height:1.05; letter-spacing:-2px; margin-bottom:1.25rem; }
+.page-hero h1 em { font-style:italic; color:var(--cyan); }
+.page-hero p { font-size:1.1rem; color:rgba(255,255,255,0.55); max-width:520px; line-height:1.8; }
+
+/* SERVICES MAIN */
+.services-main { background:var(--white); padding:100px 5%; }
+.svc-block { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; margin-bottom:6rem; 
+padding-bottom:6rem; border-bottom:1px solid var(--border); }
+.svc-block:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+.svc-block.reverse { direction:rtl; }
+.svc-block.reverse > * { direction:ltr; }
+.svc-visual {
+  background:var(--navy); border-radius:20px; padding:2.5rem;
+  border:1px solid rgba(255,255,255,0.07); min-height:260px;
+  display:flex; flex-direction:column; justify-content:space-between;
+  position:relative; overflow:hidden;
+}
+.svc-visual::before {
+  content:''; position:absolute; bottom:-60px; right:-60px;
+  width:200px; height:200px;
+  background:radial-gradient(circle, rgba(0,207,232,0.12), transparent 70%);
+  border-radius:50%;
+}
+.svc-icon-big { font-size:3rem; margin-bottom:1rem; display:block; }
+.svc-visual h3 { font-family:var(--font-display); font-size:1.6rem; font-weight:900; color:var(--white); margin-bottom:0.5rem; }
+.svc-visual p { font-size:0.85rem; color:rgba(255,255,255,0.45); line-height:1.7; }
+.svc-tag { display:inline-block; font-family:var(--font-mono); font-size:0.7rem; background:rgba(0,207,232,0.1); 
+border:1px solid rgba(0,207,232,0.2); color:var(--cyan); padding:0.3rem 0.75rem; border-radius:20px; margin-top:1rem; }
+.svc-text h2 { font-size:clamp(1.6rem,3vw,2.2rem); margin-bottom:1rem; }
+.svc-text p { color:var(--gray); font-size:0.95rem; line-height:1.8; margin-bottom:1.25rem; }
+.svc-features { list-style:none; display:flex; flex-direction:column; gap:0.6rem; margin:1.5rem 0; }
+.svc-features li { display:flex; align-items:flex-start; gap:0.75rem; font-size:0.875rem; color:var(--gray); }
+.svc-features li::before { content:'✓'; color:var(--blue); font-weight:800; flex-shrink:0; margin-top:1px; font-size:0.8rem; }
+
+/* ADD-ONS */
+.addons { background:var(--navy2); padding:100px 5%; }
+.addons h2 { color:var(--white); }
+.addons .lead { color:rgba(255,255,255,0.5); }
+.addons-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
+.addon-card {
+  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px; padding:1.8rem; transition:all 0.25s;
+}
+.addon-card:hover { background:rgba(255,255,255,0.07); transform:translateY(-4px); border-color:rgba(0,207,232,0.2); }
+.addon-icon { font-size:1.8rem; margin-bottom:1rem; display:block; }
+.addon-card h4 { font-family:var(--font-body); font-size:0.9rem; font-weight:700; color:var(--white); margin-bottom:0.5rem; }
+.addon-card p { font-size:0.8rem; color:rgba(255,255,255,0.45); line-height:1.7; }
+.addon-price { font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan); margin-top:0.75rem; display:block; }
+
+/* PROCESS */
+.process { background:var(--offwhite); padding:100px 5%; }
+.process-steps { display:grid; grid-template-columns:repeat(5,1fr); gap:0; margin-top:3rem; position:relative; }
+.process-steps::before { content:''; position:absolute; top:32px; left:10%; right:10%; height:2px; background:
+linear-gradient(90deg,var(--blue),var(--cyan)); z-index:0; }
+.step { text-align:center; padding:0 1rem; position:relative; z-index:1; }
+.step-num { width:64px; height:64px; border-radius:50%; background:var(--white); border:3px solid var(--blue); display:flex; 
+align-items:center; justify-content:center; 
+font-family:var(--font-display); font-size:1.3rem; font-weight:900; color:var(--blue); margin:0 auto 1rem; }
+.step h4 { font-family:var(--font-body); font-size:0.875rem; font-weight:700; color:var(--navy); margin-bottom:0.4rem; }
+.step p { font-size:0.78rem; color:var(--gray); line-height:1.6; }
+
+@media(max-width:900px){
+  .svc-block{grid-template-columns:1fr;gap:2.5rem}
+  .svc-block.reverse{direction:ltr}
+  .addons-grid{grid-template-columns:1fr 1fr}
+  .process-steps{grid-template-columns:1fr 1fr;gap:2rem}
+  .process-steps::before{display:none}
+}
+@media(max-width:600px){
+  .addons-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr}
+}
+
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Executive<em>Fiber</em></a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html" class="active">ISP Services</a></li>
+    <li><a href="packages.html">Packages</a></li>
+    <li><a href="digital.html">Digital</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Connected</a></li>
+  </ul>
+  <button type="button" class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html" class="active">ISP Services</a>
+  <a href="packages.html">Packages</a>
+  <a href="digital.html">Digital</a>
+  <a href="contact.html" class="mob-cta">Get Connected</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="tag">What We Do</div>
+    <h1>Services Built<br>for <em>Real Life.</em></h1>
+    <p>From home streaming to enterprise leased lines — Executive Fiber has a solution for every connectivity need across the country.</p>
+  </div>
+</div>
+
+<section class="services-main">
+
+  <!-- HOME FIBER -->
+  <div class="svc-block" id="home-fiber">
+    <div class="svc-visual">
+      <div>
+        <span class="svc-icon-big">🏠</span>
+        <h3>Home Fiber</h3>
+        <p>Symmetrical speeds for the whole household — no peak-hour throttling.</p>
+      </div>
+      <span class="svc-tag">FROM KSH 1,500/MO</span>
+    </div>
+    <div class="svc-text">
+      <div class="tag">Residential</div>
+      <h2>Internet the Whole Family Can Use — At Once</h2>
+      <p>Our home fiber packages deliver symmetrical gigabit-class speeds that handle everything your household throws at it — 4K streaming, video calls, 
+        online gaming, and remote work, all simultaneously.</p>
+      <p>Because we own our infrastructure, there's no shared congestion at peak hours. The speed you sign up for is the speed you get.</p>
+      <ul class="svc-features">
+        <li>Symmetrical download & upload speeds</li>
+        <li>Unlimited data — no caps, ever</li>
+        <li>Free professional installation</li>
+        <li>WiFi router included</li>
+        <li>24/7 customer support</li>
+      </ul>
+      <a href="packages.html" class="btn btn-blue btn-arrow">See Home Plans</a>
+    </div>
+  </div>
+
+  <!-- BUSINESS -->
+  <div class="svc-block reverse" id="business-broadband">
+    <div class="svc-visual">
+      <div>
+        <span class="svc-icon-big">🏢</span>
+        <h3>Business Broadband</h3>
+        <p>Dedicated fiber with SLA guarantees — built for operations that can't afford downtime.</p>
+      </div>
+      <span class="svc-tag">FROM KSH 6,500/MO</span>
+    </div>
+    <div class="svc-text">
+      <div class="tag">Business</div>
+      <h2>Connectivity Your Business Can Rely On</h2>
+      <p>Our business broadband comes with guaranteed SLAs, static IP addresses, and priority support. Whether you're running a small office or a multi-branch operation, 
+        we design the right solution.</p>
+      <p>Every business package includes a dedicated account manager and response time commitments written into your contract.</p>
+      <ul class="svc-features">
+        <li>Guaranteed uptime SLA (99.9%)</li>
+        <li>Static IP address included</li>
+        <li>Priority 24/7 technical support</li>
+        <li>Dedicated account manager</li>
+        <li>Business-grade router & firewall</li>
+        <li>Scalable bandwidth on demand</li>
+      </ul>
+      <a href="packages.html" class="btn btn-blue btn-arrow">See Business Plans</a>
+    </div>
+  </div>
+
+  <!-- HOTSPOT -->
+  <div class="svc-block" id="hotspot">
+    <div class="svc-visual">
+      <div>
+        <span class="svc-icon-big">📡</span>
+        <h3>Hotspot Solutions</h3>
+        <p>Managed WiFi with full billing control for hotels, estates & schools.</p>
+      </div>
+      <span class="svc-tag">CUSTOM PRICING</span>
+    </div>
+    <div class="svc-text">
+      <div class="tag">Managed WiFi</div>
+      <h2>Turn WiFi into a Revenue Stream</h2>
+      <p>Our managed hotspot solution lets hotels, rental estates, schools, and commercial landlords offer 
+        branded WiFi to their guests and tenants — with full billing management, usage controls, and reporting built in.</p>
+      <p>We handle the infrastructure. You handle the experience. Your guests just connect.</p>
+      <ul class="svc-features">
+        <li>Branded login portal with your logo</li>
+        <li>Flexible time & data voucher billing</li>
+        <li>Usage monitoring & reports</li>
+        <li>Per-user bandwidth controls</li>
+        <li>Walled garden for pre-auth access</li>
+        <li>Remote management & monitoring</li>
+      </ul>
+      <a href="contact.html?plan=hotspot" class="btn btn-blue btn-arrow">Request a Quote</a>
+    </div>
+  </div>
+
+  <!-- LEASED LINES -->
+  <div class="svc-block reverse" id="leased-lines">
+    <div class="svc-visual">
+      <div>
+        <span class="svc-icon-big">⚡</span>
+        <h3>Dedicated Leased Lines</h3>
+        <p>Uncontended point-to-point fiber for maximum throughput and reliability.</p>
+      </div>
+      <span class="svc-tag">ENTERPRISE PRICING</span>
+    </div>
+    <div class="svc-text">
+      <div class="tag">Enterprise</div>
+      <h2>Uncontended Bandwidth, Guaranteed</h2>
+      <p>Dedicated leased lines provide a private, unshared fiber connection between your premises and our network. Zero contention, 
+        guaranteed bandwidth, and the highest possible SLA available.</p>
+      <p>Ideal for data centers, large enterprises, ISP backhaul, and any operation requiring maximum reliability.</p>
+      <ul class="svc-features">
+        <li>100% uncontended bandwidth</li>
+        <li>Point-to-point fiber connection</li>
+        <li>99.99% uptime SLA</li>
+        <li>Multiple static IPs included</li>
+        <li>BGP routing available</li>
+        <li>Dedicated on-site engineer support</li>
+      </ul>
+      <a href="contact.html?plan=leased" class="btn btn-blue btn-arrow">Talk to Sales</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ADD-ONS -->
+<section class="addons">
+  <div class="tag">Add-Ons</div>
+  <h2>Enhance Your Connection</h2>
+  <p class="lead">Optional extras available on any plan.</p>
+  <div class="addons-grid">
+    <div class="addon-card">
+      <span class="addon-icon">🔒</span>
+      <h4>Static IP Address</h4>
+      <p>Host services, remote access, or VPN endpoints from a fixed public IP.</p>
+      <span class="addon-price">+KSH 500/MO</span>
+    </div>
+    <div class="addon-card">
+      <span class="addon-icon">🛡️</span>
+      <h4>Managed Firewall</h4>
+      <p>Enterprise-grade firewall management — we configure, monitor, and update it for you.</p>
+      <span class="addon-price">+KSH 1,500/MO</span>
+    </div>
+    <div class="addon-card">
+      <span class="addon-icon">📶</span>
+      <h4>WiFi Access Points</h4>
+      <p>Professional grade access point installation for full-property coverage.</p>
+      <span class="addon-price">FROM KSH 3,000</span>
+    </div>
+    <div class="addon-card">
+      <span class="addon-icon">📊</span>
+      <h4>Network Monitoring</h4>
+      <p>Real-time bandwidth usage, uptime reports, and monthly analytics dashboard.</p>
+      <span class="addon-price">+KSH 800/MO</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="tag">Getting Started</div>
+  <h2>Connected in 5 Simple Steps</h2>
+  <div class="process-steps">
+    <div class="step"><div class="step-num">1</div><h4>Check Coverage</h4><p>Tell us your location and we confirm availability within hours.</p></div>
+    <div class="step"><div class="step-num">2</div><h4>Choose a Plan</h4><p>Pick the package that fits your needs and budget.</p></div>
+    <div class="step"><div class="step-num">3</div><h4>Schedule Install</h4><p>We book a convenient installation time — usually within 48 hours.</p></div>
+    <div class="step"><div class="step-num">4</div><h4>We Install</h4><p>Our certified team installs fiber and equipment cleanly and professionally.</p></div>
+    <div class="step"><div class="step-num">5</div><h4>You're Live</h4><p>Test your speeds, call us if anything's off. We don't leave until it's perfect.</p></div>
+  </div>
+</section>
+
+<div class="speed-ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">⚡ UP TO 500 MBPS</span>
+    <span class="ticker-item">📡 FIBER OPTIC NETWORK</span>
+    <span class="ticker-item">🔒 99.9% UPTIME SLA</span>
+    <span class="ticker-item">📞 24/7 SUPPORT</span>
+    <span class="ticker-item">🌍 ACROSS THE COUNTRY</span>
+    <span class="ticker-item">✅ FREE INSTALLATION</span>
+    <span class="ticker-item">⚡ UP TO 1 GBPS</span>
+    <span class="ticker-item">📡 FIBER OPTIC NETWORK</span>
+    <span class="ticker-item">🔒 99.9% UPTIME SLA</span>
+    <span class="ticker-item">📞 24/7 SUPPORT</span>
+    <span class="ticker-item">🌍 ACROSS THE COUNTRY</span>
+    <span class="ticker-item">✅ FREE INSTALLATION</span>
+  </div>
+</div>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><a href="index.html" class="logo">Executive<em>Fiber</em></a>
+      <p>Enterprise-grade fiber optic internet for homes and businesses across the country.</p></div>
+    <div class="footer-col"><h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">ISP Services</a>
+      <a href="packages.html">Packages</a>
+      <a href="digital.html">Digital Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col"><h4>Services</h4>
+      <a href="services.html#home-fiber">Home Fiber</a>
+      <a href="services.html#business-broadband">Business Broadband</a>
+      <a href="services.html#hotspot">Hotspot Solutions</a>
+      <a href="services.html#leased-lines">Leased Lines</a>
+    </div>
+    <div class="footer-col"><h4>Contact</h4>
+      <a href="tel:+254797150692">+254 797150692</a>
+      <a href="mailto:executivefiber@gmail.com">executivefiber@gmail.com</a>
+      <a href="contact.html">Across the country</a>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 <span>Executive Fiber</span>. All rights reserved. · <a href="privacy.html">Privacy Policy</a></p>
+
+
+     <div class="footer-socials">
+
+  <!-- WhatsApp -->
+<a href="https://wa.me/254797150692" title="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener">
+  <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor">
+    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.742 5.49 2.043 7.796L.057 31.943l8.418-2.203A15.933 15.933 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.006 22.906c-.334.940-1.956 1.846-2.686 1.962-.73.116-1.64.165-2.647-.166-1.007-.33-2.295-.77-3.953-1.507-3.29-1.462-5.44-4.77-5.604-4.992-.163-.222-1.33-1.77-1.33-3.376s.842-2.396 1.14-2.722c.298-.327.65-.409.866-.409.217 0 .434.002.624.01.2.01.468-.076.733.559.275.658.933 2.276.933 2.442 0 .166-.083.373-.249.597-.166.222-.249.36-.415.555-.166.194-.35.41-.149.804.2.394.892 1.47 1.915 2.381 1.315 1.173 2.424 1.536 2.773 1.709.35.174.554.145.757-.083.2-.228.865-.997 1.096-1.34.23-.342.46-.285.773-.171.313.114 1.99.938 2.33 1.109.34.17.568.256.651.398.083.143.083.826-.25 1.767z"/>
+  </svg>
+</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
